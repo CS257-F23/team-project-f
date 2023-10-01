@@ -1,7 +1,10 @@
 import csv
 import argparse
 
-if __name__ == "__main__":
+
+
+def load_data():
+    global court_data_list
     court_data_list = []
 
     court_data_csv = open("Data/SCDB_2022_01_justiceCentered_Citation.csv", "r")
@@ -11,5 +14,8 @@ if __name__ == "__main__":
         court_data_list.append(row)
     court_data_csv.close()
     
+
+if __name__ == "__main__":
+    load_data()
     
     
