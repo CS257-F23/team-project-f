@@ -8,7 +8,7 @@ def load_data():
     
     court_data_list = []
 
-    court_data_csv = open("Data/SCDB_2022_01_justiceCentered_Citation.csv", "r")
+    court_data_csv = open("Data/SCDB_2022_01_justiceCentered_Citation.csv", "r", encoding="ansi")
     court_data = csv.reader(court_data_csv, delimiter=',')
     for row in court_data:
         court_data_list.append(row)
