@@ -20,7 +20,8 @@ class TestFeatures(unittest.TestCase):
             
     def test_edge_case_justice_votes(self):
         #test the edge cases for case_justice_votes feature
-        self.assertRaises(LookupError,"Not existing case id")
+        with self.assertRaises(LookupError):
+            case_justice_votes("tests")
 
     
     def test_case_name_lookup(self):
@@ -31,7 +32,8 @@ class TestFeatures(unittest.TestCase):
         
     def test_edge_case_name_lookup(self):
         #test edge case for the case_name_lookup feature
-        self.assertRaises(LookupError,case_name_lookup(),"Not existing case id")
-        
+        with self.assertRaises(LookupError):
+            case_name_lookup("asdf")
+           
 if __name__ == '__main__':
     unittest.main()
