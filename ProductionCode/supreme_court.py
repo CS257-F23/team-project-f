@@ -2,7 +2,14 @@ import csv
 import argparse
 import sys
 
+
 def load_data():
+
+    """
+    Loads datasheet from the .csv file and saves it in a list of lists.
+    Also creats a dictionary of header values corresponding to indicies in the list.
+    """
+
     global court_data_list
     global indexer
     
@@ -11,7 +18,7 @@ def load_data():
     court_data_csv = open("Data/SCDB_2022_01_justiceCentered_Citation.csv", "r", encoding="ansi")
     court_data = csv.reader(court_data_csv, delimiter=',')
     for row in court_data:
-        court_data_list.append(row)
+        court_data_list.append(row) 
     court_data_csv.close()
     
     header = court_data_list[0]
@@ -21,6 +28,11 @@ def load_data():
 
 
 def case_name_lookup(us_cite_id: str) -> str:
+
+    """
+    Takes U.S. Citation as input and returns the corresponding full case name.
+    Raises LookupError if U.S. Citation is not valid/found.
+    """
 
     case_name = None
     
@@ -36,6 +48,11 @@ def case_name_lookup(us_cite_id: str) -> str:
     
 def case_justice_votes(us_cite_id: str) -> list:
 
+    """
+    Takes U.S. Citation as input and returns a list of tuples containing justice name and how they voted.
+    Raises LookupError if U.S. Citation is not valid/found.
+    """
+
     case_votes = []
     
     for row in court_data_list[1:]:
@@ -48,10 +65,16 @@ def case_justice_votes(us_cite_id: str) -> list:
         raise LookupError("U.S. Citation ID not found")
     else:
         return case_votes
-            
+
 
 if __name__ == "__main__":
+
+    """
+    Handles command-line interface usage of the application.
+    """
+    
     parser = argparse.ArgumentParser(description='Dataset Lookup')
+    
     parser.add_argument('--find_name', action='store_true',
                         help='Finds the full name of a case')
                         
