@@ -79,7 +79,7 @@ class TestFeatures(unittest.TestCase):
             # out, err = command.communicate()
             # self.assertEqual(out.strip(),"UNITED STATES v. ALCEA BAND OF TILLAMOOKS ET AL.")
             
-        cli_out = self.cli_helper(["python", "-u", "ProductionCode/supreme_court.py",
+        cli_out = self.cli_helper(["python3", "-u", "ProductionCode/supreme_court.py",
                               "--find_name", "--us_citation",
                               "329 U.S. 40"])
         self.assertEqual(cli_out["out"].strip(),"UNITED STATES v. ALCEA BAND OF TILLAMOOKS ET AL.")
@@ -100,7 +100,7 @@ class TestFeatures(unittest.TestCase):
             # out, err = command.communicate()
             # self.assertIn("LookupError",err)
             
-        cli_out = self.cli_helper(["python", "-u", "ProductionCode/supreme_court.py",
+        cli_out = self.cli_helper(["python3", "-u", "ProductionCode/supreme_court.py",
                               "--find_name", "--us_citation",
                               "INVALID"])
                           
