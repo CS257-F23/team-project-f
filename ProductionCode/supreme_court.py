@@ -85,7 +85,7 @@ if __name__ == "__main__":
                         required=('--find_name' in sys.argv or '--find_justice_votes' in sys.argv),
                         help='U.S. Citation ID; required  if options that involve lookups by case are used')
                         
-    args = parser.parse_args()
+    args = parser.parse_args(args=(sys.argv[1:] or ['-h']))
     
     load_data()
     
