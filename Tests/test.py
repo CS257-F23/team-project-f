@@ -8,7 +8,7 @@ class TestFeatures(unittest.TestCase):
         load_data()
         
     def cli_helper(self, args):
-        
+        #Helper method for running subprocess
         command = subprocess.Popen(args,stdin=subprocess.PIPE,
                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                    encoding="utf8")
@@ -70,36 +70,38 @@ class TestFeatures(unittest.TestCase):
 
 
     def test_cli_name_lookup(self):
-        
-        # with subprocess.Popen(["python","-u", "ProductionCode/supreme_court.py",
-                          # "--find_name", "--us_citation",
-                          # "329 U.S. 40"],
-                         # stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                         # encoding="utf8") as command:
-            # out, err = command.communicate()
-            # self.assertEqual(out.strip(),"UNITED STATES v. ALCEA BAND OF TILLAMOOKS ET AL.")
-            
+        #test the command line for name_lookup method
         cli_out = self.cli_helper(["python3", "-u", "ProductionCode/supreme_court.py",
                               "--find_name", "--us_citation",
                               "329 U.S. 40"])
         self.assertEqual(cli_out["out"].strip(),"UNITED STATES v. ALCEA BAND OF TILLAMOOKS ET AL.")
             
     
-    # def test_cli_justice_votes(self):
-    
-        
+    def test_cli_justice_votes(self):
+        #test the command line for justice_votes method
+        cli_out = self.cli_helper(["python3", "-u", "ProductionCode/supreme_court.py",
+                              "--find_justice_votes", "--us_citation",
+                              "329 U.S. 1"])
+        expectet_output = '''HHBurton - 2
+RHJackson - 1
+WODouglas - 1
+FFrankfurter - 4
+SFReed - 1
+HLBlack - 1
+WBRutledge - 1
+FMurphy - 1
+FMVinson - 1'''
+        self.assertIn(cli_out["out"].strip(),expectet_output)
            
-    
+    def test_edge_cli_justice_votes(self):
+        #test the edge case on command line for justice_votes method
+        cli_out = self.cli_helper(["python3", "-u", "ProductionCode/supreme_court.py",
+                              "--find_justice_votes", "--us_citation",
+                              "Not existing id"])
+        self.assertIn("LookupError",cli_out["err"])
+        
     def test_cli_invalid_id_name_lookup(self):
-         
-        # with subprocess.Popen(["python","-u", "ProductionCode/supreme_court.py",
-                          # "--find_name", "--us_citation",
-                          # "INVALID"],
-                         # stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                         # encoding="utf8") as command:
-            # out, err = command.communicate()
-            # self.assertIn("LookupError",err)
-            
+        #test for the edge case of command line name_lookup method            
         cli_out = self.cli_helper(["python3", "-u", "ProductionCode/supreme_court.py",
                               "--find_name", "--us_citation",
                               "INVALID"])
