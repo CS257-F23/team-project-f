@@ -26,6 +26,10 @@ Yinan is good at implementing working algorithms to realize specific functions, 
 Sam is good at working with data, and big picture ideas for project planning. 
 He also has experience coding in different domains, between working at a tech startup and doing personal projects.
 
+Josh will be responsible for implementing justice-related features, such as gathering voting decisions and data for each justice.
+Sam will be responsible for case I.D. features, including implementing all I.D. types into the code and making sure that they are supported by all functions.
+Yinan will be responsible for implementing general case data features and will also be primarily responsible for test writing.
+
 
 
 
@@ -63,65 +67,38 @@ Check to make sure the URL is stable from session to session (try opening the sa
 
 
 
-Date Downloaded
-Datasets can be fluid, so be sure you record when you downloaded your data.
-
+Date downloaded
 
 	9/24/2023
 
-
 Authorship
-Record the author, Primary Investigator, or Agency that created the dataset
-
 
 	Washington University in St. Louis School of Law
 
-
-Exact name of the dataset and version
-There are lots of similarly named datasets, so this will prevent mayhem later.
-
+Name and version of dataset
 
 	Justice centered data organized by Supreme Court Citation MODERN Database: 2022 Release 01
 
-
-
-
-Time period, geography, and/or scope covered
-
+Time period covered
 
 	18 November 1946 - 30 June 2021
 
-
 Location of dataset overview information
-URL or other description of where to find the overview. Note key aspects of the overview in your notes (such as time period, geography, etc). Be sure to save local copies as datasets can be fluid things and documentation may move or change.
-
 
 	http://supremecourtdatabase.org/data.php
 	
-	
 Location of technical documentation
-URL or other description, PLUS LOCAL COPIES THAT YOU SAVE. These may include a codebook, user guide, metadata, documentation, and terms of use. Be sure to save local copies as datasets can be fluid things and documentation may move or change.
 
-
-
-
-
+	http://supremecourtdatabase.org/documentation.php
 
 Data formats
-Note any useful information about the data formats found.
-
-
-
 
 	Various spreadsheet styles such as .csv and .xlsx are offered.
 
-
 Terms of Use
-Are there any restrictions on how you can use these data?
 
+	No concerns with regards to our project.
+	
+Citation
 
-	None with regards to our project.
-	
-	
-Suggested Citation if provided
-You may adjust this citation later to accommodate a particular citation style, but always record the suggested citation in your notes.
+	Harold J. Spaeth, Lee Epstein, et al. 2022 Supreme Court Database, Version 2022 Release 1. URL: http://Supremecourtdatabase.org
