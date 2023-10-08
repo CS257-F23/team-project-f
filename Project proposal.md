@@ -1,14 +1,14 @@
-﻿##Supreme Court Justices and Their Votes by Case (post-1949)
+﻿## Supreme Court Justices and Their Votes by Case (post-1949)
 
 
 
-#Goals statement:
+# Goals statement:
 
 Our goal is to integrate voting data from the Supreme Court and case information into a user interface that will allow user searches for cases and justices. 
 We also aim to improve our skills in team-based software development.
 
 
-#Strengths of our team and individual members:
+# Strengths of our team and individual members:
 
 All three of us are generally proficient in python, which will be essential for the development of our project, as everyone will be able to contribute to the code. 
 Josh is good at visualizing overall code structure before starting and during a project, which will be helpful for all stages of coding, 
@@ -27,18 +27,18 @@ Yinan will be responsible for implementing general case data features and will a
 
 
 #Rules for our team:
-*We will meet every Sunday at Anderson for two hours in the afternoon. 
-*We will give full consideration of all opinions and keep our communication respectful.
-*We will contact each other over text message and share relevant files over Google Drive.
-*We will collaborate our coding efforts through GitHub.
-*For decisions of broader scope such as general project direction and feature planning, we will make decisions based on the consensus of all three team members.
-*For smaller work such as implementing functions, we will divide work based on factors including, but not limited to, who was principally responsible for the idea, who has the most developed vision for the implementation of the idea, and who has worked on other closely related areas of the project.
+* We will meet every Sunday at Anderson for two hours in the afternoon. 
+* We will give full consideration of all opinions and keep our communication respectful.
+* We will contact each other over text message and share relevant files over Google Drive.
+* We will collaborate our coding efforts through GitHub.
+* For decisions of broader scope such as general project direction and feature planning, we will make decisions based on the consensus of all three team members.
+* For smaller work such as implementing functions, we will divide work based on factors including, but not limited to, who was principally responsible for the idea, who has the most developed vision for the implementation of the idea, and who has worked on other closely related areas of the project.
 
 
 #Proposed Features
-*By-justice lookup to be able to see the votes from a specified justice for each case
-*By-case lookup to be able to see how each justice voted for a specific case along with relevant case information
-*Both by-justice and -case filtering to get how one or more certain justices voted on one or more cases
+* By-justice lookup to be able to see the votes from a specified justice for each case
+* By-case lookup to be able to see how each justice voted for a specific case along with relevant case information
+* Both by-justice and -case filtering to get how one or more certain justices voted on one or more cases
 
 
 #Dataset Metadata
