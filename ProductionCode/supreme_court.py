@@ -26,10 +26,6 @@ def load_data():
     for i in range(len(header)):
         indexer[header[i]] = i
 
-def get_data():
-    #return the court_data_list
-    return court_data_list
-
 
 def case_name_lookup(us_cite_id: str) -> str:
 
