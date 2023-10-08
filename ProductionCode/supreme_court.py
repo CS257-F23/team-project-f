@@ -67,13 +67,28 @@ def case_justice_votes(us_cite_id: str) -> list:
         return case_votes
 
 
+def argument_logic(find_name: bool, find_justice_votes: bool, us_cite_id: str):
+
+    """
+    Handles cli argument logic and calls corresponding functions.
+    """
+
+    if find_name and us_cite_id:
+        print(case_name_lookup(us_cite_id))
+        
+    if find_justice_votes and us_cite_id:
+        for justice in case_justice_votes(us_cite_id):
+            print(" - ".join(justice))
+            
+
 if __name__ == "__main__":
 
     """
     Handles command-line interface usage of the application.
     """
     
-    parser = argparse.ArgumentParser(description='Dataset Lookup')
+    parser = argparse.ArgumentParser(description='Dataset Lookup',
+                                     epilog='Example: python3 supreme_court.py --find_name --us_citation "329 U.S. 143"')
     
     parser.add_argument('--find_name', action='store_true',
                         help='Finds the full name of a case')
@@ -89,9 +104,5 @@ if __name__ == "__main__":
     
     load_data()
     
-    if args.find_name and args.us_citation:
-        print(case_name_lookup(args.us_citation))
-    elif args.find_justice_votes and args.us_citation:
-        for justice in case_justice_votes(args.us_citation):
-            print(" - ".join(justice))
+    argument_logic(args.find_name, args.find_justice_votes, args.us_citation)
         

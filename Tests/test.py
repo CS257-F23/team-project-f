@@ -50,17 +50,13 @@ class TestFeatures(unittest.TestCase):
         """
         Test the edge cases for calling case_justice_votes with an invalid ID
         """
-        with self.assertRaises(LookupError):
-            case_justice_votes("tests")
-
+        self.assertRaises(LookupError, case_justice_votes, "tests")
     
     def test_no_id_justice_votes(self):
         """
         Test the edge cases for calling case_justice_votes with no input
         """
-        with self.assertRaises(TypeError):
-            case_justice_votes()
-    
+        self.assertRaises(TypeError, case_justice_votes)
     
     def test_case_name_lookup(self):
         """
@@ -75,16 +71,14 @@ class TestFeatures(unittest.TestCase):
         """
         Test edge case for calling case_name_lookup with an invalid ID input
         """
-        with self.assertRaises(LookupError):
-            case_name_lookup("asdf")
+        self.assertRaises(LookupError, case_name_lookup, "asdf")
            
            
     def test_no_input_name_lookup(self):
         """
         Test edge case for calling case_name_lookup with no input
         """
-        with self.assertRaises(TypeError):
-            case_name_lookup()
+        self.assertRaises(TypeError, case_name_lookup)
 
 
     def test_cli_name_lookup(self):
@@ -136,9 +130,7 @@ FMVinson - 1'''
                               "INVALID"])
                           
         self.assertIn("LookupError",cli_out["err"])
-    
-
-                    
+        
             
 if __name__ == '__main__':
     unittest.main()
