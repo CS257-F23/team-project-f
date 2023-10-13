@@ -1,26 +1,29 @@
-from flask import Flask
+from flask import Flask, render_template
 from ProductionCode.supreme_court import *
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def homepage():
-
+    # Define intermediate variables
+    title = "Supreme Court Data"
+    heading = "Usage Instructions"
+    usage_message =  """
+        Usage: http://[hostname]:[port]/[function]/[U.S. Citation ID]
+        Available Functions: 'find_name', 'find_justice_votes'     
+        find_name: Displays the full name of a Supreme Court case.
+        find_justice_votes: Displays the votes from each justice in a Supreme Court case.
     """
-    Displays instructions on the homepage.
+    usage_message = usage_message.split('\n')
+    function_examples_title = "Examples:"
+    example_message = """
+        Find name example: http://127.0.0.1:5000/find_name/410%20U.S.%20113
+        Find justice votes example: http://127.0.0.1:5000/find_justice_votes/410%20U.S.%20113
     """
-
-    message = "Usage: http://[hostname]:[port]/[function]/[U.S. Citation ID]<br>\
-               Available Functions: 'find_name', 'find_justice_votes'<br>\
-               <br>\
-               find_name: Displays the full name of a Supreme Court case.<br>\
-               find_justice_votes: Displays the votes from each justice in a Supreme Court case.<br>\
-               <br>\
-               Examples: http://127.0.0.1:5000/find_name/410%20U.S.%20113,\
-               http://127.0.0.1:5000/find_justice_votes/410 U.S. 113"
-               
-
-    return message
+    example_message = example_message.split('\n')
+    # Render the HTML template
+    return render_template('homepage.html', title=title, heading=heading, usage_message=usage_message, function_examples_title=function_examples_title, example_message=example_message)
     
     
 def display_find_name(case_id):
