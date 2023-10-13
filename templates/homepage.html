@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <h1>{{ heading }}</h1>
+        <ul>
+            {% for line in usage_message %}
+                <p>{{line}}</p>
+            {% endfor %}
+        </ul>
+        <h2>{{ function_examples_title }}</h2>
+        <ul>
+            {% for line in example_message %}
+                <p>{{line}}</p>
+            {% endfor %}
+        </ul>        
+    </body>
+</html>
