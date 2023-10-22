@@ -80,7 +80,6 @@ class TestFeatures(unittest.TestCase):
         """
         self.assertRaises(TypeError, case_name_lookup)
 
-
     def test_cli_name_lookup(self):
         """
         Test the command line for case_name_lookup method

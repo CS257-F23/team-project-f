@@ -72,7 +72,7 @@ def came_name_displayer_page():
     if search_query == "" or search_query == None:
         return render_template('case_name_displayer.html', case_name_text="e.g., 329 U.S. 40")
     else:
-        case_name = core.find_case_name(search_query)
+        case_name = case_name_lookup(search_query)
         case_name_text = "The case name of "+search_query+" is "+case_name
         return render_template('case_name_displayer.html', case_name_text = case_name_text)
     
