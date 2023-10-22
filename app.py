@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from ProductionCode.supreme_court import *
 
 app = Flask(__name__)
@@ -8,22 +8,24 @@ app = Flask(__name__)
 def homepage():
     # Define intermediate variables
     title = "Supreme Court Data"
-    heading = "Usage Instructions"
-    usage_message =  """
-        Usage: http://[hostname]:[port]/[function]/[U.S. Citation ID]
-        Available Functions: 'find_name', 'find_justice_votes'     
-        find_name: Displays the full name of a Supreme Court case.
-        find_justice_votes: Displays the votes from each justice in a Supreme Court case.
-    """
-    usage_message = usage_message.split('\n')
-    function_examples_title = "Examples:"
-    example_message = """
-        Find name example: http://127.0.0.1:5000/find_name/410%20U.S.%20113
-        Find justice votes example: http://127.0.0.1:5000/find_justice_votes/410%20U.S.%20113
-    """
-    example_message = example_message.split('\n')
+    welcome_message = "Welcome to Supreme Court Database"
+    website_description = "The features of this website is listed below."
+    Find_case_name = "Find case name"
+    Find_justice_vote = "Find justice voting for case"
+    Find_case_identifier = "Find_case_identifier"
+    About = "About us"
+    About_message = "This is group deliverable 3 for team f"
+    Developers = "Team f"
     # Render the HTML template
-    return render_template('homepage.html', title=title, heading=heading, usage_message=usage_message, function_examples_title=function_examples_title, example_message=example_message)
+    return render_template('homepage.html', title=title,
+                           welcome_message=welcome_message,
+                           website_description=website_description,
+                           Find_case_name=Find_case_name,
+                           Find_justice_vote=Find_justice_vote,
+                           Find_case_identifier=Find_case_identifier,
+                           About = About,
+                           About_message=About_message,
+                           Developers=Developers)
     
     
 def display_find_name(case_id):
@@ -61,6 +63,18 @@ def display_find_justice_votes(case_id):
             display_votes += "<br>"
         return display_votes
 
+@app.route('/case_name', methods=['GET'])
+def came_name_displayer_page():
+    '''
+    Split page for case_name_finder feature with input case id
+    '''
+    search_query = request.args.get('search')
+    if search_query == "" or search_query == None:
+        return render_template('case_name_displayer.html', case_name_text="e.g., 329 U.S. 40")
+    else:
+        case_name = core.find_case_name(search_query)
+        case_name_text = "The case name of "+search_query+" is "+case_name
+        return render_template('case_name_displayer.html', case_name_text = case_name_text)
     
 @app.route('/<function>/<case_id>', strict_slashes=False)
 def display_supreme_court_data(function, case_id):
@@ -69,8 +83,11 @@ def display_supreme_court_data(function, case_id):
     Calls appropriate functions to display information based on URL. Displays error message if funtion does not exist.
     """
 
-    if function == "find_name":
-        return display_find_name(case_id)
+    if function == "case_name":
+        if case_id == '' or case_id == None:
+            return render_template('case_name_displayer.html',
+                                   case_name_text = "e.g. 329 U.S. 40")
+        
         
     elif function == "find_justice_votes":
         return display_find_justice_votes(case_id)

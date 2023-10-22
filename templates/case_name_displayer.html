@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supreme Court Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='datastyle1.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" id="WebTitle">Supreme Court Database</a>
+        </nav>
+    </header>
+
+    <div class="search-container">
+        <h1>Find Case Name by Case ID</h1>
+            <form id="form" action="/case_name"> 
+                <input type="search" id="query" name="search" placeholder="Please enter Case Id">
+                <button id="searchButton">Search</button>
+            </form>
+
+        <p class="case-name-text">{{case_name_text}}</p>
+    </div>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; Yinan Gao</p>
+        </div>
+    </footer>
+</body>
+</html>
