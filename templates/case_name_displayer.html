@@ -13,13 +13,14 @@
     </header>
 
     <div class="search-container">
-        <h1>Find Case Name by Case ID</h1>
-            <form id="form" action="/case_name"> 
-                <input type="search" id="query" name="search" placeholder="Please enter Case Id">
-                <button id="searchButton">Search</button>
-            </form>
-
-        <p class="case-name-text">{{case_name_text}}</p>
+        <h1>{{function_text}}</h1>
+            <form id="form" action={{function_url}}> 
+			<input type="search" id="query" name="search" placeholder="Enter Case ID">
+			<button id="searchButton">Search</button>
+		</form>
+		<div class="answer-text">
+			<p class="case-name-text">{{case_name_text}}</p>
+		</div>
     </div>
 
 

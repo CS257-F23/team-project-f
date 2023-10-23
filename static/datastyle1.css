@@ -103,6 +103,10 @@ body {
     height: 100vh;
 }
 
+.search-container .answer-text {
+	white-space: pre-wrap;
+}
+
 /* Style the title for the name_finder page*/
 h1 {
     font-size: 28px;

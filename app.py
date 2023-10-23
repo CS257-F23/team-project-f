@@ -9,13 +9,13 @@ def homepage():
     # Define intermediate variables
     title = "Supreme Court Data"
     welcome_message = "Welcome to Supreme Court Database"
-    website_description = "The features of this website is listed below."
-    Find_case_name = "Find case name"
-    Find_justice_vote = "Find justice voting for case"
-    Find_case_identifier = "Find_case_identifier"
-    About = "About us"
-    About_message = "This is group deliverable 3 for team f"
-    Developers = "Team f"
+    website_description = "The features of this website are listed below."
+    Find_case_name = "Find Case Name for Case"
+    Find_justice_vote = "Find Justice Votes for Case"
+    Find_case_identifier = "Find all Identifiers for Case"
+    About = "About Us"
+    About_message = "This is Group Deliverable 3 for Team F"
+    Developers = "Team F"
     # Render the HTML template
     return render_template('homepage.html', title=title,
                            welcome_message=welcome_message,
@@ -60,21 +60,52 @@ def display_find_justice_votes(case_id):
         display_votes = ""
         for justice in votes:
             display_votes += " - ".join(justice)
-            display_votes += "<br>"
-        return display_votes
+            display_votes += "\n"
+        return display_votes[:-1]
+        
+        
+def display_find_case_ids(case_id):
 
-@app.route('/case_name', methods=['GET'])
-def came_name_displayer_page():
+    """
+    Calls function from ProductionCode to find, format, and return case ID data. Displays error message if an invalid ID was given.
+    """
+    
+    try:
+        ids = case_identifier_lookup(case_id)
+        
+    except LookupError:
+        return "Invalid U.S. Citation ID"
+        
+    else:
+        display_ids = ""
+        for key, value in ids.items():
+            display_ids += key+": "+value+"\n"
+        return display_ids[:-1]
+
+@app.route('/<function>', methods=['GET'], strict_slashes=False)
+def came_name_displayer_page(function):
+
     '''
     Split page for case_name_finder feature with input case id
     '''
+    
     search_query = request.args.get('search')
+    func_text = ("Find "+(function.replace('_', ' ')).title()+" by Case ID")
+    func_url = "/"+function
+    
+    if function != "case_name" and function != "justice_votes" and function != "case_identifiers":
+        return "404"
+    
     if search_query == "" or search_query == None:
-        return render_template('case_name_displayer.html', case_name_text="e.g., 329 U.S. 40")
-    else:
-        case_name = case_name_lookup(search_query)
-        case_name_text = "The case name of "+search_query+" is "+case_name
-        return render_template('case_name_displayer.html', case_name_text = case_name_text)
+        case_name_text="e.g., 329 U.S. 40"
+    elif function == "case_name":
+        case_name_text = display_find_name(search_query)
+    elif function == "justice_votes":
+        case_name_text = display_find_justice_votes(search_query)
+    elif function == "case_identifiers":
+        case_name_text = display_find_case_ids(search_query)
+    
+    return render_template('case_name_displayer.html', case_name_text=case_name_text, function_text=func_text, function_url=func_url)
     
 @app.route('/<function>/<case_id>', strict_slashes=False)
 def display_supreme_court_data(function, case_id):
