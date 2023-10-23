@@ -91,50 +91,22 @@ def case_identifier_lookup(us_cite_id: str) -> dict:
     else:
         return ids
  
-
-def argument_logic(find_name: bool, find_justice_votes: bool, find_all_identifiers: bool, us_cite_id: str):
+ 
+def all_justice_votes(justice: str) -> list:
 
     """
-    Handles cli argument logic and calls corresponding functions.
+    Takes justice name as input and returns a list of tuples containing case name and the justice's vote.
+    Raises LookupError if justice name is not valid/found.
     """
-
-    if find_name and us_cite_id:
-        print(case_name_lookup(us_cite_id))
-        
-    if find_justice_votes and us_cite_id:
-        for justice in case_justice_votes(us_cite_id):
-            print(" - ".join(justice))
+    
+    justice_votes = []
+    
+    for row in court_data_list[1:]:
+        if row[indexer["justiceName"]] == justice:
+            justice_votes.append((row[indexer["caseName"]], row[indexer["vote"]]))
             
-    if find_all_identifiers and us_cite_id:
-        for key, value in case_identifier_lookup(us_cite_id).items():
-            print(key + ": " + value)
-            
-
-if __name__ == "__main__":
-
-    """
-    Handles command-line interface usage of the application.
-    """
-    
-    parser = argparse.ArgumentParser(description='Dataset Lookup',
-                                     epilog='Example: python3 supreme_court.py --find_name --us_citation "329 U.S. 143"')
-    
-    parser.add_argument('--find_name', action='store_true',
-                        help='Finds the full name of a case')
-                        
-    parser.add_argument('--find_justice_votes', action='store_true',
-                        help='Finds the votes for each justice of a case')
-                        
-    parser.add_argument('--find_all_identifiers', action='store_true',
-                        help='Finds all identifiers of a case')                    
-                        
-    parser.add_argument('--us_citation', type=str,
-                        required=('--find_name' in sys.argv or '--find_justice_votes' in sys.argv or '--find_all_identifiers' in sys.argv),
-                        help='U.S. Reporter Citation ID; required  if options that involve lookups by case are used')
-                        
-    args = parser.parse_args(args=(sys.argv[1:] or ['-h']))
-    
-    load_data()
-    
-    argument_logic(args.find_name, args.find_justice_votes, args.find_all_identifiers, args.us_citation)
+    if justice_votes == []:
+        raise LookupError("Justice not found")  
+    else:
+        return justice_votes
         
