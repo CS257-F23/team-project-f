@@ -108,43 +108,28 @@ def came_name_displayer_page(function):
     '''
     
     search_query = request.args.get('search')
-    func_text = ("Find "+(function.replace('_', ' ')).title()+" by Case ID")
+    func_text = ("Find "+(function.replace('_', ' ')).title())
     func_url = "/"+function
     
     if function not in ("case_name","justice_votes","case_identifiers","all_justice_votes"):
         return "404"
     
     if search_query == "" or search_query == None:
-        case_name_text="e.g., 329 U.S. 40"
+        case_name_text="Case name example: 329 U.S. 40; Justice name example: HHBurton"
     elif function == "case_name":
         case_name_text = display_find_name(search_query)
+        func_text += " by Case ID"
     elif function == "justice_votes":
         case_name_text = display_find_justice_votes(search_query)
+        func_text += " by Case ID"
     elif function == "case_identifiers":
         case_name_text = display_find_case_ids(search_query)
+        func_text += " by Case ID"
     elif function == "all_justice_votes":
         case_name_text = display_find_all_justice_votes(search_query)
+        func_text += " by Justice Name"
     
     return render_template('case_name_displayer.html', case_name_text=case_name_text, function_text=func_text, function_url=func_url)
-    
-@app.route('/<function>/<case_id>', strict_slashes=False)
-def display_supreme_court_data(function, case_id):
-
-    """
-    Calls appropriate functions to display information based on URL. Displays error message if funtion does not exist.
-    """
-
-    if function == "case_name":
-        if case_id == '' or case_id == None:
-            return render_template('case_name_displayer.html',
-                                   case_name_text = "e.g. 329 U.S. 40")
-        
-        
-    elif function == "find_justice_votes":
-        return display_find_justice_votes(case_id)
-        
-    else:
-        return "Invalid function."
         
     
 @app.errorhandler(404)
