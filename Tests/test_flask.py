@@ -42,7 +42,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         result = display_find_justice_votes("410 U.S. 113")
-        expected_output = 'WODouglas - 3<br>PStewart - 3<br>TMarshall - 1<br>WJBrennan - 1<br>BRWhite - 2<br>WEBurger - 3<br>HABlackmun - 1<br>LFPowell - 1<br>WHRehnquist - 2<br>'
+        expected_output = 'WODouglas - 3\nPStewart - 3\nTMarshall - 1\nWJBrennan - 1\nBRWhite - 2\nWEBurger - 3\nHABlackmun - 1\nLFPowell - 1\nWHRehnquist - 2'
         self.assertIn(expected_output, result)
 
 
@@ -93,7 +93,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         response = self.app.get('/justice_votes?search=410+U.S.+113')
-        self.assertIn(b'WODouglas - 3\nPStewart - 3\nTMarshall - 1\nWJBrennan - 1\nBRWhite - 2\nWEBurger - 3\nHABlackmun - 1\nLFPowell - 1\nWHRehnquist - 2\n', response.data) 
+        self.assertIn(b'WODouglas - 3\nPStewart - 3\nTMarshall - 1\nWJBrennan - 1\nBRWhite - 2\nWEBurger - 3\nHABlackmun - 1\nLFPowell - 1\nWHRehnquist - 2', response.data) 
 
     def test_display_supreme_court_data_find_justice_votes_invalid(self):
     
