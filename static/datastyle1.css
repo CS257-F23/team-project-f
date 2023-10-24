@@ -1,60 +1,52 @@
-/* Reset default browser styles */
-body, h1, h2, h3, p, ul, li, form {
-    margin: 0;
-    padding: 0;
-}
-
+/* style the body content */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
 
+/* style the header */
 header {
     background-color: #696969;
     color: #fff;
     padding: 10px 0;
 }
 
-nav ul {
-    list-style: none;
-}
-
-nav li {
-    display: inline;
-    margin-right: 20px;
-}
-
+/* style the navigation bar (though actually one item in it) */
 nav a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
 }
 
+/* style the container for about section and footers */
 .container {
     max-width: 960px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* style the container of the navigation buttons and the main content */
 #main {
     background-size: cover;
     text-align: center;
     padding: 100px 0;
     color: #fff;
 }
-
+/* style the welcome message */
 #main h1 {
     font-size: 36px;
     margin-bottom: 20px;
     color: #0d0d0d;
 }
 
+/* style the website description */
 #main p {
     font-size: 18px;
     margin-bottom: 20px;
     color: #212121;
 }
 
+/* style the button list */
 .button-list {
     display: flex; /* Use flexbox to make the list items align horizontally */
     justify-content: space-between; 
@@ -62,11 +54,13 @@ nav a {
     padding: 0; 
 }
 
+/* Use flex to keep the distance between bottons */
 .button-list li {
-    flex: 1; /* Each list item takes up an equal portion of the container */
+    flex: 1; 
     margin: 0 10px; 
 }
 
+/* style the buttons */
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -77,10 +71,12 @@ nav a {
     transition: background-color 0.3s;
 }
 
+/* style the button hover thus presenting them to be clickable */
 .btn:hover {
     background-color: #555;
 }
 
+/* style the footer */
 footer {
     background-color: #636363;
     color: #fff;
@@ -94,7 +90,7 @@ body {
     text-align: center;
 }
 
-/* Style the search container */
+/* Style the container of the search bar */
 .search-container {
     display: flex;
     flex-direction: column;
@@ -103,6 +99,7 @@ body {
     height: 30vh;
 }
 
+/* style the answer text */
 .answer-text {
 	text-align: center;
 	white-space: pre-wrap;
