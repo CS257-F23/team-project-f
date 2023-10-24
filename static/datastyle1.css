@@ -4,17 +4,24 @@ body {
     background-color: #f4f4f4;
 }
 
-/* style the header */
+/* style the header bar*/
 header {
     background-color: #696969;
     color: #fff;
     padding: 10px 0;
 }
 
-/* style the navigation bar (though actually one item in it) */
-nav a {
+
+
+header :hover {
+    background-color:#555;
+}
+
+#WebTitle {
+    font-size: 36px;
+    color: #fff;    
     text-decoration: none;
-    color: #fff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
 }
 

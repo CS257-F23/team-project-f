@@ -93,7 +93,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         response = self.app.get('/justice_votes?search=410+U.S.+113')
-        self.assertIn(b'WODouglas - 3<br>PStewart - 3<br>TMarshall - 1<br>WJBrennan - 1<br>BRWhite - 2<br>WEBurger - 3<br>HABlackmun - 1<br>LFPowell - 1<br>WHRehnquist - 2<br>', response.data) 
+        self.assertIn(b'WODouglas - 3\nPStewart - 3\nTMarshall - 1\nWJBrennan - 1\nBRWhite - 2\nWEBurger - 3\nHABlackmun - 1\nLFPowell - 1\nWHRehnquist - 2\n', response.data) 
 
     def test_display_supreme_court_data_find_justice_votes_invalid(self):
     
@@ -127,6 +127,22 @@ class TestSupremeCourtApp(unittest.TestCase):
         
         self.assertIn(b"Invalid U.S. Citation ID",response)
         
+    def display_test_case_identifiers_valid(self):
+        """
+        Test that the app route returns the correct message for the all votes for justice function.
+        """
+    
+        response = self.app.get('/all_justice_votes?search=HHBurton')
+        self.assertIn(b"HALLIBURTON OIL WELL CEMENTING CO. v. WALKER et al., DOING BUSINESS AS DEPTHOGRAPH CO. - 2",response)
+    
+    def display_test_case_identifiers_invalid(self):
+        """
+        Test that the app route returns the error message for the all votes for justice function if input is invalid.
+        """
+    
+        response = self.app.get('/all_justice_votes?search=invalid')
+        self.assertIn(b"Invalid U.S. Citation ID",response)
+    
     
     def test_page_not_found(self):
     
@@ -135,8 +151,8 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         response = self.app.get('/nonexistent_route')
-        self.assertIn(b"Page not found.", response.data)
-
+        self.assertIn(b"Page not found. Please follow the buttons on the homepage by clicking the header.", response.data)
+    
 if __name__ == '__main__':
 
     unittest.main()
