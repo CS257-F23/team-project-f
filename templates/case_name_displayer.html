@@ -2,13 +2,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supreme Court Database</title>
+    <title>{{title}}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='datastyle1.css') }}">
 </head>
 <body>
     <header>
         <nav>
-            <a href="/" id="WebTitle">Supreme Court Database</a>
+            <a href="/" id="WebTitle">{{title}}</a>
         </nav>
     </header>
 
@@ -28,7 +28,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; Yinan Gao</p>
+            <p>&copy; {{Developers}}</p>
         </div>
     </footer>
 </body>

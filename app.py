@@ -106,7 +106,8 @@ def came_name_displayer_page(function):
     '''
     Split page for case_name_finder feature with input case id
     '''
-    
+    title = "Supreme Court Data"
+    Developers = "Team F"
     search_query = request.args.get('search')
     func_text = ("Find "+(function.replace('_', ' ')).title())
     func_url = "/"+function
@@ -129,7 +130,9 @@ def came_name_displayer_page(function):
         case_name_text = display_find_all_justice_votes(search_query)
         func_text += " by Justice Name"
     
-    return render_template('case_name_displayer.html', case_name_text=case_name_text, function_text=func_text, function_url=func_url)
+    return render_template('case_name_displayer.html', case_name_text=case_name_text, 
+                           function_text=func_text, function_url=func_url,
+                           title=title, Developers=Developers)
         
     
 @app.errorhandler(404)
