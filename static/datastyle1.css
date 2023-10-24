@@ -99,12 +99,6 @@ body {
     height: 30vh;
 }
 
-/* style the answer text */
-.answer-text {
-	text-align: center;
-	white-space: pre-wrap;
-}
-
 /* Style the title for the name_finder page*/
 h1 {
     font-size: 28px;
@@ -139,7 +133,15 @@ input[type="search"] {
 
 
 /* Style the case name text */
-.case-name-text {
+.answer-text {
     margin-top: 10px;
     font-style: italic;
+	text-align: center;
+	white-space: pre-wrap;
+}
+
+.notfound {
+	padding-top: 4em;
+	padding-bottom: 4em;
+	text-align: center;
 }

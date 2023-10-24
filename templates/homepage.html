@@ -1,39 +1,39 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='datastyle1.css') }}">
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="/" id="WebTitle">{{title}}</a>
-        </nav>
-    </header>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{title}}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='datastyle1.css') }}">
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="/" id="WebTitle">{{title}}</a>
+			</nav>
+		</header>
 
-    <section id="main">
-        <h1>{{welcome_message}}</h1>
-        <p>{{website_description}}</p>
-        <ul class="button-list">
-            <li><a href="/case_name" class="btn">{{Find_case_name}}</a></li>
-            <li><a href="/justice_votes" class="btn">{{Find_justice_vote}}</a></li>
-            <li><a href="/case_identifiers" class="btn">{{Find_case_identifier}}</a></li>
-			<li><a href="/all_justice_votes" class="btn">{{Find_all_justice_votes}}</a></li>
-        </ul>
-    </section>
+		<section id="main">
+			<h1>{{welcome_message}}</h1>
+			<p>{{website_description}}</p>
+			<ul class="button-list">
+				<li><a href="/case_name" class="btn">{{Find_case_name}}</a></li>
+				<li><a href="/justice_votes" class="btn">{{Find_justice_vote}}</a></li>
+				<li><a href="/case_identifiers" class="btn">{{Find_case_identifier}}</a></li>
+				<li><a href="/all_justice_votes" class="btn">{{Find_all_justice_votes}}</a></li>
+			</ul>
+		</section>
 
-    <section id="about">
-        <div class="container">
-            <h2>{{About}}</h2>
-            <p>{{About_message}}</p>
-        </div>
-    </section>
+		<section id="about">
+			<div class="container">
+				<h2>{{About}}</h2>
+				<p>{{About_message}}</p>
+			</div>
+		</section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; {{Developers}}</p>
-        </div>
-    </footer>
-</body>
+		<footer>
+			<div class="container">
+				<p>&copy; {{Developers}}</p>
+			</div>
+		</footer>
+	</body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, abort
 from ProductionCode.supreme_court import *
 
 app = Flask(__name__)
@@ -106,29 +106,32 @@ def came_name_displayer_page(function):
     '''
     Split page for case_name_finder feature with input case id
     '''
+        
+    if function not in ("case_name","justice_votes","case_identifiers","all_justice_votes"):
+        abort(404)
+        
     title = "Supreme Court Data"
     Developers = "Team F"
     search_query = request.args.get('search')
-    func_text = ("Find "+(function.replace('_', ' ')).title())
     func_url = "/"+function
+    search_term = " by Case ID"
     
-    if function not in ("case_name","justice_votes","case_identifiers","all_justice_votes"):
-        return "404"
+    if function == "all_justice_votes":
+        search_term = " by Justice Name"
+
+    func_text = ("Find "+(function.replace('_', ' ')).title()+search_term)
+
     
     if search_query == "" or search_query == None:
-        case_name_text="Case name example: 329 U.S. 40; Justice name example: HHBurton"
+        case_name_text="Case name example: 329 U.S. 40\nJustice name example: HHBurton"
     elif function == "case_name":
         case_name_text = display_find_name(search_query)
-        func_text += " by Case ID"
     elif function == "justice_votes":
         case_name_text = display_find_justice_votes(search_query)
-        func_text += " by Case ID"
     elif function == "case_identifiers":
         case_name_text = display_find_case_ids(search_query)
-        func_text += " by Case ID"
     elif function == "all_justice_votes":
         case_name_text = display_find_all_justice_votes(search_query)
-        func_text += " by Justice Name"
     
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
@@ -141,8 +144,12 @@ def page_not_found(e):
     """
     Displays error message for error 404.
     """
-
-    return "Page not found. Please revisit the homepage to view instructions for using this website."
+    
+    title = "Supreme Court Data"
+    Developers = "Team F"
+    not_found_msg = "Page not found. Please follow the buttons on the homepage by clicking the header."
+    
+    return render_template('404.html', title=title, Developers=Developers, not_found_msg=not_found_msg)
     
 
 @app.errorhandler(500)
