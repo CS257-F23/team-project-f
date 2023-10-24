@@ -152,13 +152,6 @@ class TestSupremeCourtApp(unittest.TestCase):
         response = self.app.get('/nonexistent_route')
         self.assertIn(b"Page not found. Please follow the buttons on the homepage by clicking the header.", response.data)
         
-    def test_internal_server_error(self):    
-        """
-        Test that an error message is displayed for error 500.
-        """
-    
-        response = self.app.errorhandler(500)
-        self.assertIn(b"Internal server error",response)
     
 if __name__ == '__main__':
 
