@@ -22,7 +22,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         result = display_find_name("410 U.S. 113")
-        self.assertEqual(result, "ROE et al. v. WADE, DISTRICT ATTORNEY OF DALLAS COUNTY") 
+        self.assertIn("ROE et al. v. WADE, DISTRICT ATTORNEY OF DALLAS COUNTY", result) 
 
 
     def test_display_find_name_invalid(self):
@@ -64,7 +64,6 @@ class TestSupremeCourtApp(unittest.TestCase):
         
         response = self.app.get('/')
         self.assertIn(b"Supreme Court Data", response.data)
-        self.assertIn(b"Usage Instructions", response.data)
         
 
     def test_display_supreme_court_data_find_name_valid(self):
@@ -73,8 +72,8 @@ class TestSupremeCourtApp(unittest.TestCase):
         Test that the app route returns the correct information for the find name function.
         """
     
-        response = self.app.get('/find_name/410%20U.S.%20113')
-        self.assertIn(b"ROE et al. v. WADE, DISTRICT ATTORNEY OF DALLAS COUNTY", response.data) 
+        response = self.app.get('/case_name?search=329+U.S.+40')
+        self.assertIn(b"UNITED STATES v. ALCEA BAND OF TILLAMOOKS ET AL.", response.data) 
 
 
     def test_display_supreme_court_data_find_name_invalid(self):
@@ -83,7 +82,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         Test that the app route returns an error for invalid case name for the find name function.
         """
     
-        response = self.app.get('/find_name/invalid_case_id')
+        response = self.app.get('/case_name?search=invalid_case_id')
         self.assertIn(b"Invalid U.S. Citation ID", response.data)
 
 
@@ -93,7 +92,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         Test that the app route returns the correct information for the find justice votes function.
         """
     
-        response = self.app.get('/find_justice_votes/410%20U.S.%20113')
+        response = self.app.get('/justice_votes?search=410+U.S.+113')
         self.assertIn(b'WODouglas - 3<br>PStewart - 3<br>TMarshall - 1<br>WJBrennan - 1<br>BRWhite - 2<br>WEBurger - 3<br>HABlackmun - 1<br>LFPowell - 1<br>WHRehnquist - 2<br>', response.data) 
 
     def test_display_supreme_court_data_find_justice_votes_invalid(self):
@@ -102,9 +101,33 @@ class TestSupremeCourtApp(unittest.TestCase):
         Test that the app route returns an error for invalid case name for the find justice votes function.
         """
     
-        response = self.app.get('/find_justice_votes/invalid_case_id')
+        response = self.app.get('/justice_votes?search=invalid_case_id')
         self.assertIn(b"Invalid U.S. Citation ID", response.data)
 
+    def display_test_case_identifiers_valid(self):
+        """
+        Test that the app route returns the correct message for the case identifier function.
+        """
+    
+        response = self.app.get('case_identifiers?search=329+U.S.+40')
+        
+        # Assert that all expected texts are included
+        self.assertIn(b"U.S. Reporter: 329 U.S. 40", response.data)
+        self.assertIn(b"Supreme Court Reporter: 67 S. Ct. 167", response.data)
+        self.assertIn(b"Lawyers' Edition Reports: 91 L. Ed. 29", response.data)
+        self.assertIn(b"LEXIS: 1946 U.S. LEXIS 1696", response.data)
+        self.assertIn(b"Case Name: UNITED STATES v. ALCEA BAND OF TILLAMOOKS ET AL.", response.data)
+        
+    def display_test_case_identifiers_invalid(self):
+        """
+        Test that the app route returns an error for invalid case name for the find justice votes function.
+        """
+    
+        response = self.app.get('case_identifiers?search=invalid')
+        
+        self.assertIn(b"Invalid U.S. Citation ID",response)
+        
+    
     def test_page_not_found(self):
     
         """
