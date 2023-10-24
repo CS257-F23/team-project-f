@@ -4,17 +4,19 @@ body {
     background-color: #f4f4f4;
 }
 
+
 /* style the header bar*/
 header {
     background-color: #696969;
     color: #fff;
     padding: 10px 0;
+	transition: background-color 0.3s;
 }
 
 
 
-header :hover {
-    background-color:#555;
+header:hover {
+    background-color: #333;
 }
 
 #WebTitle {

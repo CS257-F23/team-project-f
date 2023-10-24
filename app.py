@@ -115,9 +115,11 @@ def came_name_displayer_page(function):
     search_query = request.args.get('search')
     func_url = "/"+function
     search_term = " by Case ID"
+    query_text = "Enter Case ID"
     
     if function == "all_justice_votes":
         search_term = " by Justice Name"
+        query_text = "Enter Justice Name"
 
     func_text = ("Find "+(function.replace('_', ' ')).title()+search_term)
 
@@ -135,7 +137,7 @@ def came_name_displayer_page(function):
     
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
-                           title=title, Developers=Developers)
+                           title=title, Developers=Developers, query_text=query_text)
         
     
 @app.errorhandler(404)
