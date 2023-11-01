@@ -10,22 +10,30 @@ header {
     background-color: #696969;
     color: #fff;
     padding: 10px 0;
-	transition: background-color 0.3s;
 }
 
-
-
-header:hover {
-    background-color: #333;
+.navbar {
+    overflow: hidden;
 }
 
-#WebTitle {
-    font-size: 36px;
-    color: #fff;    
-    text-decoration: none;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.nav {
+    float: left;
+    font-family: 'Times New Roman', Times, serif;
+    display: block;
+    font-size: 24px;
     font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;    
 }
+
+.nav:hover {
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+
 
 /* style the container for about section and footers */
 .container {

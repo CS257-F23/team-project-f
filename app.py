@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     # Define intermediate variables
-    title = "Supreme Court Data"
+    title = "Homepage"
     welcome_message = "Welcome to Supreme Court Database"
     website_description = "The features of this website are listed below."
     Find_case_name = "Find case name for case"
@@ -110,8 +110,12 @@ def came_name_displayer_page(function):
     if function not in ("case_name","justice_votes","case_identifiers","all_justice_votes"):
         abort(404)
         
-    title = "Supreme Court Data"
+    title = "Homepage"
     Developers = "Team F"
+    Find_case_name = "Find case name for case"
+    Find_justice_vote = "Find justice votes for case"
+    Find_case_identifier = "Find all identifiers for case"
+    Find_all_justice_votes = "Find all votes for one justice"
     search_query = request.args.get('search')
     func_url = "/"+function
     search_term = " by Case ID"
@@ -137,7 +141,11 @@ def came_name_displayer_page(function):
     
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
-                           title=title, Developers=Developers, query_text=query_text)
+                           title=title, Developers=Developers, query_text=query_text,
+                           Find_case_name=Find_case_name,
+                           Find_justice_vote=Find_justice_vote,
+                           Find_case_identifier=Find_case_identifier,
+                           Find_all_justice_votes=Find_all_justice_votes)
         
     
 @app.errorhandler(404)
@@ -149,9 +157,17 @@ def page_not_found(e):
     
     title = "Supreme Court Data"
     Developers = "Team F"
+    Find_case_name = "Find case name for case"
+    Find_justice_vote = "Find justice votes for case"
+    Find_case_identifier = "Find all identifiers for case"
+    Find_all_justice_votes = "Find all votes for one justice"
     not_found_msg = "Page not found. Please follow the buttons on the homepage by clicking the header."
     
-    return render_template('404.html', title=title, Developers=Developers, not_found_msg=not_found_msg)
+    return render_template('404.html', title=title, Developers=Developers, not_found_msg=not_found_msg,
+                           Find_case_name=Find_case_name,
+                           Find_justice_vote=Find_justice_vote,
+                           Find_case_identifier=Find_case_identifier,
+                           Find_all_justice_votes=Find_all_justice_votes)
     
 
 @app.errorhandler(500)

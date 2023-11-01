@@ -5,12 +5,17 @@
 		<title>{{title}}</title>
 		<link rel="stylesheet" href="{{ url_for('static', filename='datastyle1.css') }}">
 	</head>
-	<body>
-		<a href="/" id="WebTitle">
-            <header>			
-                {{title}}			
-            </header>
-        </a>
+	<body>		
+		<header>
+			<div class="navbar">			
+				<a href="/" class="nav">{{title}}	</a>	
+				<a href="/case_name" class="nav">{{Find_case_name}}</a>
+				<a href="/justice_votes" class="nav">{{Find_justice_vote}}</a>
+				<a href="/case_identifiers" class="nav">{{Find_case_identifier}}</a>
+				<a href="/all_justice_votes" class="nav">{{Find_all_justice_votes}}</a>	
+			</div>
+		</header>	
+        
 
 		<section id="main">
 			<h1>{{welcome_message}}</h1>
