@@ -145,13 +145,13 @@ class TestSupremeCourtApp(unittest.TestCase):
     
     
     def test_page_not_found(self):
-    
         """
         Test that an error message is displayed for error 404.
         """
     
         response = self.app.get('/nonexistent_route')
         self.assertIn(b"Page not found. Please follow the buttons on the homepage by clicking the header.", response.data)
+        
     
 if __name__ == '__main__':
 

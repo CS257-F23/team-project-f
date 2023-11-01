@@ -26,11 +26,10 @@ def argument_logic(find_name: bool, find_justice_votes: bool, find_all_identifie
         for case in all_justice_votes(justice):
             print(" - ".join(case))
             
-
-if __name__ == "__main__":
+def argument_adder():
 
     """
-    Handles command-line interface usage of the application.
+    Handles adding arguments to the parser.
     """
     
     parser = argparse.ArgumentParser(description='Dataset Lookup',
@@ -57,6 +56,16 @@ if __name__ == "__main__":
                         help='Justice name; formatted as [first initial][middle initial (if present)][last name] e.g. "HHBurton";\
                         required if options that involve justice lookup are used')
                         
+    return parser
+
+if __name__ == "__main__":
+
+    """
+    Handles command-line interface usage of the application.
+    """
+
+    parser = argument_adder()
+
     args = parser.parse_args(args=(sys.argv[1:] or ['-h']))
     
     load_data()
