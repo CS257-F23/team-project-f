@@ -60,7 +60,8 @@ def display_find_justice_votes(case_id):
     """
     
     try:
-        votes = case_justice_votes(case_id)
+        # votes = case_justice_votes(case_id)
+        votes = dataset.case_justice_votes(case_id)
         
     except LookupError:
         return "Invalid U.S. Citation ID"
@@ -80,7 +81,8 @@ def display_find_case_ids(case_id):
     """
     
     try:
-        ids = case_identifier_lookup(case_id)
+        # ids = case_identifier_lookup(case_id)
+        ids = dataset.case_identifier_lookup(case_id)
         
     except LookupError:
         return "Invalid U.S. Citation ID"

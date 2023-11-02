@@ -64,7 +64,18 @@ class DataSource:
         
         query = "SELECT usCite, sctCite, ledCite, lexisCite, caseName FROM caseinfo WHERE usCite=%s"
         
-        return self.query_lookup(query, us_cite_id)
+        hit = self.query_lookup(query, us_cite_id)
+        
+        ids = {
+
+               "U.S. Reporter": us_cite_id,
+               "Supreme Court Reporter": hit[0][1],
+               "Lawyers' Edition Reports": hit[0][2],
+               "LEXIS": hit[0][3],
+               "Case Name": hit[0][4]
+        }
+        
+        return ids
         
     def case_name_lookup(self, us_cite_id):
 
@@ -74,7 +85,7 @@ class DataSource:
         
         query = "SELECT caseName FROM caseinfo WHERE usCite=%s"
         
-        return self.query_lookup(query, us_cite_id)
+        return (self.query_lookup(query, us_cite_id))[0][0]
         
     def case_justice_votes(self, us_cite_id):
     
