@@ -6,7 +6,7 @@ CREATE TABLE caseinfo (
 	lexisCite VARCHAR,
 	caseName VARCHAR,
 	dateDecision VARCHAR,
-	caseDisposition CHAR
+	caseDisposition VARCHAR
 );
 
 DROP TABLE IF EXISTS voteinfo;
