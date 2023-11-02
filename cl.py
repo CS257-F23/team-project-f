@@ -2,6 +2,9 @@ import csv
 import argparse
 import sys
 from ProductionCode.supreme_court import *
+from ProductionCode.datasource import DataSource
+
+dataset = DataSource()
 
 
 def argument_logic(find_name: bool, find_justice_votes: bool, find_all_identifiers: bool, find_all_justice_votes: bool,
@@ -12,19 +15,19 @@ def argument_logic(find_name: bool, find_justice_votes: bool, find_all_identifie
     """
 
     if find_name and us_cite_id:
-        print(case_name_lookup(us_cite_id))
+        print(dataset.case_name_lookup(us_cite_id))
         
     if find_justice_votes and us_cite_id:
-        for justice in case_justice_votes(us_cite_id):
-            print(" - ".join(justice))
+        for justice in dataset.case_justice_votes(us_cite_id):
+            print(str(justice[0]) + " - " + str(justice[1]))
             
     if find_all_identifiers and us_cite_id:
-        for key, value in case_identifier_lookup(us_cite_id).items():
+        for key, value in dataset.case_identifier_lookup(us_cite_id).items():
             print(key + ": " + value)
             
     if find_all_justice_votes and justice:
-        for case in all_justice_votes(justice):
-            print(" - ".join(case))
+        for case in dataset.all_justice_votes(justice):
+            print(str(case[0]) + " - " + str(case[1]))
             
 def argument_adder():
 
@@ -68,7 +71,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args(args=(sys.argv[1:] or ['-h']))
     
-    load_data()
+    # load_data()
     
     argument_logic(args.find_name, args.find_justice_votes, args.find_all_identifiers, args.find_all_justice_votes,
                    args.us_citation, args.justice)
