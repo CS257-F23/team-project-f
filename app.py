@@ -67,11 +67,12 @@ def display_find_justice_votes(case_id):
         return "Invalid U.S. Citation ID"
         
     else:
-        display_votes = ""
-        for justice in votes:
-            display_votes += " - ".join(justice)
-            display_votes += "\n"
-        return display_votes[:-1]
+        # display_votes = ""
+        # for justice in votes:
+            # display_votes += " - ".join(justice)
+            # display_votes += "\n"
+        # return display_votes[:-1]
+        return votes
         
         
 def display_find_case_ids(case_id):
@@ -101,7 +102,8 @@ def display_find_all_justice_votes(justice):
     """
 
     try:
-        votes = all_justice_votes(justice)
+        # votes = all_justice_votes(justice)
+        votes = dataset.all_justice_votes(justice)
         
     except LookupError:
         return "Invalid Justice Name"
