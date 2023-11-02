@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, abort
 from ProductionCode.supreme_court import *
+from ProductionCode.datasource import DataSource
 
 app = Flask(__name__)
+dataset = DataSource()
 
 
 @app.route('/')
@@ -41,7 +43,8 @@ def display_find_name(case_id):
     """
     
     try:
-        name = case_name_lookup(case_id)
+        # name = case_name_lookup(case_id)
+        name = dataset.case_name_lookup(case_id)
         
     except LookupError:
         return "Invalid U.S. Citation ID"
@@ -199,5 +202,5 @@ def internal_server_error(e):
 if __name__ == '__main__':
 
     load_data()
-    app.run()
+    app.run(port=5220)
 
