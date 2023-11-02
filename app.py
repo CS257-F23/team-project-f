@@ -201,6 +201,6 @@ def internal_server_error(e):
 
 if __name__ == '__main__':
 
-    load_data()
+    # load_data()
     app.run(port=5220)
 
