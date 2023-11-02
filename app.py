@@ -67,12 +67,11 @@ def display_find_justice_votes(case_id):
         return "Invalid U.S. Citation ID"
         
     else:
-        # display_votes = ""
-        # for justice in votes:
-            # display_votes += " - ".join(justice)
-            # display_votes += "\n"
-        # return display_votes[:-1]
-        return votes
+        display_votes = ""
+        for justice in votes:
+            display_votes += str(justice[0]) + " - " + str(justice[1])
+            display_votes += "\n"
+        return display_votes[:-1]
         
         
 def display_find_case_ids(case_id):
@@ -111,7 +110,7 @@ def display_find_all_justice_votes(justice):
     else:
         display_votes = ""
         for case in votes:
-            display_votes += " - ".join(case)
+            display_votes += str(case[0]) + " - " + str(case[1])
             display_votes += "\n"
         return display_votes[:-1]
         
