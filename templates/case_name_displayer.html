@@ -23,12 +23,16 @@
 				<button id="searchButton">Search</button>
 			</form>
 			
-			<select id="query" name="search" method="GET" action={{function_url}}>
-				<option value="{{dropdown[0]}}" selected>{{dropdown[0]}}</option>
-				{% for query in dropdown[1:] %}
-					<option value="{{query}}">{{query}}</option>
-				{% endfor %}
-			</select>
+			<form id ="dropdown" action={{function_url}}>
+				<select id="query">
+					<option value="{{dropdown[0]}}" selected>{{dropdown[0]}}</option>
+					{% for query in dropdown[1:] %}
+						<option value="{{query}}">{{query}}</option>
+					{% endfor %}
+				</select>
+				<input type="submit" value="Submit">
+			</form>
+			
 		</div>
 		
 		<p class="answer-text">{{case_name_text}}</p>
