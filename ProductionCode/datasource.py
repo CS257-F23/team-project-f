@@ -13,8 +13,8 @@ class DataSource:
         self.connection = self.connect()
         self.voteinfo = {"1": "Voted with majority",
                          "2": "Dissent",
-                         "3": "Regular Concurrence",
-                         "4": "Special Concurrence",
+                         "3": "Regular concurrence",
+                         "4": "Special concurrence",
                          "5": "Judgement of the Court",
                          "6": "Dissent from denial of certiorari or of affirmation appeal",
                          "7": "Jurisdictional dissent",
