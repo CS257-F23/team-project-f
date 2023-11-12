@@ -61,12 +61,14 @@ class DataSource:
         query = "SELECT caseinfo.caseName, voteinfo.vote FROM voteinfo INNER JOIN caseinfo \
                  ON voteinfo.lexisCite=caseinfo.lexisCite WHERE justiceName=%s"
                  
-        hit = self.query_lookup(query, justice)
+        hit = self.query_lookup(query, justice)  
+        votes = []
         
         for row in hit:
-            row[1] = self.voteinfo[row[1]]
+            newrow = [row[0]]
+            newrow[1] = self.voteinfo[row[1]]
         
-        return hit
+        return votes
 
     
     def case_identifier_lookup(self, us_cite_id):
@@ -110,9 +112,11 @@ class DataSource:
                  ON caseinfo.lexisCite=voteinfo.lexisCite WHERE usCite=%s"
         
         hit = self.query_lookup(query, us_cite_id)
+        votes = []
         
         for row in hit:
-            row[1] = self.voteinfo[row[1]]
+            newrow = [row[0]]
+            newrow[1] = self.voteinfo[row[1]]
         
-        return hit
+        return votes
     
