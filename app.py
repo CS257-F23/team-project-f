@@ -93,11 +93,19 @@ def display_find_all_justice_votes(justice):
 
 def create_case_id_dropdown():
 
+    """
+    Creates and returns list of all case ids for dropdown menu
+    """
+
     ids = dataset.get_case_id_form()
     return ids
 
 
 def create_justice_name_dropdown():
+
+    """
+    Creates and returns list of all justice names for dropdown menu
+    """
 
     names = dataset.get_justice_name_form()
     return names
