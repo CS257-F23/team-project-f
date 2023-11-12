@@ -5,7 +5,7 @@ CREATE TABLE caseinfo (
 	ledCite VARCHAR,
 	lexisCite VARCHAR,
 	caseName VARCHAR,
-	dateDecision VARCHAR,
+	dateDecision DATE,
 	caseDisposition VARCHAR
 );
 
