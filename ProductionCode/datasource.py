@@ -64,7 +64,7 @@ class DataSource:
         hit = self.query_lookup(query, justice)
         
         for row in hit:
-            row[1] = voteinfo[row[1]]
+            row[1] = self.voteinfo[row[1]]
         
         return hit
 
@@ -112,7 +112,7 @@ class DataSource:
         hit = self.query_lookup(query, us_cite_id)
         
         for row in hit:
-            row[1] = voteinfo[row[1]]
+            row[1] = self.voteinfo[row[1]]
         
         return hit
     
