@@ -11,6 +11,14 @@ class DataSource:
         '''
         
         self.connection = self.connect()
+        self.voteinfo = {"1": "Voted with majority",
+                         "2": "Dissent",
+                         "3": "Regular Concurrence",
+                         "4": "Special Concurrence",
+                         "5": "Judgement of the Court",
+                         "6": "Dissent from denial of certiorari or of affirmation appeal",
+                         "7": "Jurisdictional dissent",
+                         "8": "Participation in equally divided vote"}
 
     def connect(self):
     
@@ -53,7 +61,12 @@ class DataSource:
         query = "SELECT caseinfo.caseName, voteinfo.vote FROM voteinfo INNER JOIN caseinfo \
                  ON voteinfo.lexisCite=caseinfo.lexisCite WHERE justiceName=%s"
                  
-        return self.query_lookup(query, justice)
+        hit = self.query_lookup(query, justice)
+        
+        for row in hit:
+            row[1] = voteinfo[row[1]]
+        
+        return hit
 
     
     def case_identifier_lookup(self, us_cite_id):
@@ -96,5 +109,10 @@ class DataSource:
         query = "SELECT voteinfo.justiceName, voteinfo.vote FROM caseinfo INNER JOIN voteinfo \
                  ON caseinfo.lexisCite=voteinfo.lexisCite WHERE usCite=%s"
         
-        return self.query_lookup(query, us_cite_id)
+        hit = self.query_lookup(query, us_cite_id)
+        
+        for row in hit:
+            row[1] = voteinfo[row[1]]
+        
+        return hit
     

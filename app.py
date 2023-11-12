@@ -109,7 +109,7 @@ def came_name_displayer_page():
     search_query = request.args.get('search')
     
     if search_query == None:
-        case_name_text = "Select from the dropdown menu"
+        case_name_text = "Select case ID from the dropdown menu"
         print(search_query)
     else:
         case_name_text = display_find_name(search_query)
@@ -133,7 +133,7 @@ def justice_votes_displayer_page():
     search_query = request.args.get('search')
     
     if search_query == None:
-        case_name_text = "Select from the dropdown menu"         
+        case_name_text = "Select case ID from the dropdown menu"         
     else:
         case_name_text = display_find_justice_votes(search_query)    
 
@@ -155,7 +155,10 @@ def case_identifiers_displayer_page():
     func_url = "/case_identifiers"
     query_text = "Enter Case ID"
     
-    case_name_text = display_find_case_ids(search_query)   
+    if search_query == None:
+        case_name_text = "Select case ID from the dropdown menu"         
+    else:
+        case_name_text = display_find_case_ids(search_query)   
 
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
@@ -175,7 +178,10 @@ def all_justice_votes_displayer_page():
     func_url = "/all_justice_votes"
     query_text = "Enter Justice Name"
     
-    case_name_text = display_find_all_justice_votes(search_query)   
+    if search_query == None:
+        case_name_text = "Select justice name from the dropdown menu"         
+    else:    
+        case_name_text = display_find_all_justice_votes(search_query)   
 
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
