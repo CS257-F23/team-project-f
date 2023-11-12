@@ -108,7 +108,7 @@ def came_name_displayer_page():
     query_text = "Enter Case ID"
     search_query = request.args.get('search')
     
-    if search_query:
+    if search_query == None:
         case_name_text = "Select from the dropdown menu"
         print(search_query)
     else:
@@ -132,7 +132,7 @@ def justice_votes_displayer_page():
     query_text = "Enter Case ID"
     search_query = request.args.get('search')
     
-    if search_query:
+    if search_query == None:
         case_name_text = "Select from the dropdown menu"         
     else:
         case_name_text = display_find_justice_votes(search_query)    
