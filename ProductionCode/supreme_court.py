@@ -28,13 +28,13 @@ def load_data():
         indexer[header[i]] = i
         
             
-    vote_representation = {"1": "Voted with majority"
-                           "2": "Dissent"
-                           "3": "Regular Concurrence"
-                           "4": "Special Concurrence"
-                           "5": "Judgement of the Court"
-                           "6": "Dissent from denial of certiorari or of affirmation appeal"
-                           "7": "Jurisdictional dissent"
+    vote_representation = {"1": "Voted with majority",
+                           "2": "Dissent",
+                           "3": "Regular Concurrence",
+                           "4": "Special Concurrence",
+                           "5": "Judgement of the Court",
+                           "6": "Dissent from denial of certiorari or of affirmation appeal",
+                           "7": "Jurisdictional dissent",
                            "8": "Participation in equally divided vote"}
 
 
