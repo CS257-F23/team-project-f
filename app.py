@@ -107,7 +107,7 @@ def came_name_displayer_page(function):
     func_url = "/case_name"
     query_text = "Enter Case ID"
     
-    if search_query
+    if search_query == "":
         search_query = request.args.get('search')
         case_name_text = display_find_name(search_query)
     else:
