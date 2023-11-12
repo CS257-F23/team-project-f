@@ -51,6 +51,24 @@ class DataSource:
         else:
             return(cursor.fetchall())
             
+            
+    def direct_query_lookup(self, query):
+    
+        '''
+        Helper method for query lookup
+        '''
+    
+        try:
+            cursor = self.connection.cursor()
+            
+            cursor.execute(query)
+
+        except Exception as e:
+            return "An error has occurred while fetching the query: " + str(e)
+            
+        else:
+            return(cursor.fetchall())
+            
     
     def get_case_id_form(self):
     
@@ -60,7 +78,7 @@ class DataSource:
         
         query = "SELECT usCite FROM caseinfo"
         
-        return self.query_lookup(query)
+        return self.direct_query_lookup(query)
     
     def get_justice_name_form(self):
     
@@ -70,7 +88,7 @@ class DataSource:
     
         query = "SELECT DISTINCT justiceName FROM voteinfo"
         
-        return self.query_lookup(query)
+        return self.direct_query_lookup(query)
         
     def all_justice_votes(self, justice):
     
