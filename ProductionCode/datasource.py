@@ -65,8 +65,10 @@ class DataSource:
         votes = []
         
         for row in hit:
-            newrow = [row[0]]
-            newrow[1] = self.voteinfo[row[1]]
+            if row[1] == None:
+                newrow = [row[0], None]
+            else:
+                newrow == [row[0], self.voteinfo[row[1]]]
             votes.append(newrow)
         
         return votes
@@ -115,13 +117,12 @@ class DataSource:
         hit = self.query_lookup(query, us_cite_id)
         votes = []
         
-        print(hit)
-        
         for row in hit:
-            print(row)
-            newrow = [row[0],self.voteinfo[row[1]]]
+            if row[1] == None:
+                newrow = [row[0], None]
+            else:
+                newrow == [row[0], self.voteinfo[row[1]]]
             votes.append(newrow)
-            print(newrow)
         
         return votes
     
