@@ -106,9 +106,9 @@ def came_name_displayer_page():
     func_text = "Find Case Name by Case ID"
     func_url = "/case_name"
     query_text = "Enter Case ID"
+    search_query = request.args.get('search')
     
-    if search_query:
-        search_query = request.args.get('search')
+    if search_query == "":
         case_name_text = display_find_name(search_query)
     else:
         case_name_text = "Select from the dropdown menu"
@@ -128,9 +128,9 @@ def justice_votes_displayer_page():
     func_text = "Find Justice Votes by Case ID"
     func_url = "/justice_votes"
     query_text = "Enter Case ID"
+    search_query = request.args.get('search')
     
-    if search_query:
-        search_query = request.args.get('search')
+    if search_query == "":
         case_name_text = display_find_justice_votes(search_query) 
     else:
         case_name_text = "Select from the dropdown menu"    
