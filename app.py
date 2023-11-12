@@ -102,12 +102,16 @@ def came_name_displayer_page(function):
     Displays case name search page.
     '''
 
-    search_query = request.args.get('search')
+
     func_text = "Find Case Name by Case ID"
     func_url = "/case_name"
     query_text = "Enter Case ID"
-
-    case_name_text = display_find_name(search_query)
+    
+    if search_query
+        search_query = request.args.get('search')
+        case_name_text = display_find_name(search_query)
+    else:
+        case_name_text = "Select from the dropdown menu"
     
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
@@ -121,13 +125,15 @@ def justice_votes_displayer_page():
     Displays justice votes search page.
     '''
     
-    search_query = request.args.get('search')
-    
     func_text = "Find Justice Votes by Case ID"
     func_url = "/justice_votes"
     query_text = "Enter Case ID"
     
-    case_name_text = display_find_justice_votes(search_query)   
+    if search_query
+        search_query = request.args.get('search')
+        case_name_text = display_find_justice_votes(search_query) 
+    else:
+        case_name_text = "Select from the dropdown menu"    
 
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
