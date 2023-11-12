@@ -115,7 +115,10 @@ class DataSource:
         hit = self.query_lookup(query, us_cite_id)
         votes = []
         
+        print(hit)
+        
         for row in hit:
+            print(row)
             newrow = [row[0],self.voteinfo[row[1]]]
             votes.append(newrow)
             print(newrow)
