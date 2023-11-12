@@ -118,10 +118,8 @@ def came_name_displayer_page():
     
     if search_query == None:
         case_name_text = "Select case ID from the dropdown menu"
-        print(search_query)
     else:
-        case_name_text = display_find_name(search_query)
-        print(search_query)        
+        case_name_text = display_find_name(search_query)     
     
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,

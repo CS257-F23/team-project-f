@@ -23,11 +23,10 @@
 				<button id="searchButton">Search</button>
 			</form>
 			
-			<form id ="dropdown" action={{function_url}}>
-				<select id="query">
-					<option value="{{dropdown[0]}}" selected>{{dropdown[0]}}</option>
-					{% for query in dropdown[1:] %}
-						<option value="{{query}}">{{query}}</option>
+			<form id ="form2" action={{function_url}}>
+				<select name="dropdown" id="query">
+					{% for choice in dropdown %}
+						<option value="{{choice}}">{{choice}}</option>
 					{% endfor %}
 				</select>
 				<input type="submit" value="Submit">
