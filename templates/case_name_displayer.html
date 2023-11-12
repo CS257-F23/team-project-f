@@ -23,7 +23,7 @@
 				<button id="searchButton">Search</button>
 			</form>
 			
-			<form id ="form2" action={{function_url}}>
+			<form id ="form2" method="GET" action={{function_url}}>
 				<select name="dropdown" id="query">
 					{% for choice in dropdown %}
 						<option value="{{choice}}">{{choice}}</option>
