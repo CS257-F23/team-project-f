@@ -109,9 +109,9 @@ def came_name_displayer_page():
     search_query = request.args.get('search')
     
     if search_query == "":
-        case_name_text = display_find_name(search_query)
-    else:
         case_name_text = "Select from the dropdown menu"
+    else:
+        case_name_text = display_find_name(search_query)      
     
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
@@ -131,9 +131,9 @@ def justice_votes_displayer_page():
     search_query = request.args.get('search')
     
     if search_query == "":
-        case_name_text = display_find_justice_votes(search_query) 
+        case_name_text = "Select from the dropdown menu"         
     else:
-        case_name_text = "Select from the dropdown menu"    
+        case_name_text = display_find_justice_votes(search_query)    
 
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
