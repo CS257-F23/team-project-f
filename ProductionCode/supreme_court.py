@@ -12,6 +12,7 @@ def load_data():
 
     global court_data_list
     global indexer
+    global vote_representation
     
     court_data_list = []
 
@@ -25,6 +26,16 @@ def load_data():
     indexer = {}
     for i in range(len(header)):
         indexer[header[i]] = i
+        
+            
+    vote_representation = {"1": "Voted with majority"
+                           "2": "Dissent"
+                           "3": "Regular Concurrence"
+                           "4": "Special Concurrence"
+                           "5": "Judgement of the Court"
+                           "6": "Dissent from denial of certiorari or of affirmation appeal"
+                           "7": "Jurisdictional dissent"
+                           "8": "Participation in equally divided vote"}
 
 
 def case_name_lookup(us_cite_id: str) -> str:
@@ -59,7 +70,8 @@ def case_justice_votes(us_cite_id: str) -> list:
     for row in court_data_list[1:]:
         if row[indexer["usCite"]] == us_cite_id:
             justice_name = row[indexer["justiceName"]]
-            justice_vote = row[indexer["vote"]]
+            numerical_vote = row[indexer["vote"]]
+            justice_vote = vote_representation[numerical_vote]
             case_votes.append((justice_name, justice_vote))
     
     if case_votes == []:
@@ -103,7 +115,7 @@ def all_justice_votes(justice: str) -> list:
     
     for row in court_data_list[1:]:
         if row[indexer["justiceName"]] == justice:
-            justice_votes.append((row[indexer["caseName"]], row[indexer["vote"]]))
+            justice_votes.append((row[indexer["caseName"]], vote_representation[row[indexer["vote"]]]))
             
     if justice_votes == []:
         raise LookupError("Justice not found")  
