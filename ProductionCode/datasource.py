@@ -68,7 +68,7 @@ class DataSource:
             if row[1] == None:
                 newrow = [row[0], None]
             else:
-                newrow == [row[0], self.voteinfo[row[1]]]
+                newrow = [row[0], self.voteinfo[row[1]]]
             votes.append(newrow)
         
         return votes
@@ -121,7 +121,7 @@ class DataSource:
             if row[1] == None:
                 newrow = [row[0], None]
             else:
-                newrow == [row[0], self.voteinfo[row[1]]]
+                newrow = [row[0], self.voteinfo[row[1]]]
             votes.append(newrow)
         
         return votes
