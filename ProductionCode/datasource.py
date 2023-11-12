@@ -37,7 +37,7 @@ class DataSource:
     def query_lookup(self, query, var):
     
         '''
-        Helper method for query lookup
+        Helper method for query lookup.
         '''
     
         try:
@@ -55,7 +55,7 @@ class DataSource:
     def direct_query_lookup(self, query):
     
         '''
-        Helper method for query lookup
+        Helper method for query lookup without variables.
         '''
     
         try:
@@ -78,7 +78,12 @@ class DataSource:
         
         query = "SELECT usCite FROM caseinfo"
         
-        return self.direct_query_lookup(query)
+        hit = self.direct_query_lookup(query)
+        final = []
+        for row in hit:
+            final.append(row[0])
+        
+        return final
     
     def get_justice_name_form(self):
     
@@ -88,7 +93,12 @@ class DataSource:
     
         query = "SELECT DISTINCT justiceName FROM voteinfo"
         
-        return self.direct_query_lookup(query)
+        hit = self.direct_query_lookup(query)
+        final = []
+        for row in hit:
+            final.append(row[0])
+        
+        return final
         
     def all_justice_votes(self, justice):
     
