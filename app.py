@@ -96,7 +96,7 @@ def display_find_all_justice_votes(justice):
 
 
 @app.route('/case_name', methods=['GET'], strict_slashes=False)
-def came_name_displayer_page(function):
+def came_name_displayer_page():
 
     '''
     Displays case name search page.
@@ -107,7 +107,7 @@ def came_name_displayer_page(function):
     func_url = "/case_name"
     query_text = "Enter Case ID"
     
-    if search_query == "":
+    if search_query:
         search_query = request.args.get('search')
         case_name_text = display_find_name(search_query)
     else:
@@ -129,7 +129,7 @@ def justice_votes_displayer_page():
     func_url = "/justice_votes"
     query_text = "Enter Case ID"
     
-    if search_query == "":
+    if search_query:
         search_query = request.args.get('search')
         case_name_text = display_find_justice_votes(search_query) 
     else:
