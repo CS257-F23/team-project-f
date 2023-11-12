@@ -130,12 +130,6 @@ h1 {
 }
 
 /* Style the input fields */
-input[type="search"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
 
 select {
     padding: 10px;
