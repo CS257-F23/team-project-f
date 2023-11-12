@@ -18,10 +18,17 @@
 			
 		<div class="search-container">
 			<h1>{{function_text}}</h1>
-				<form id="form" action={{function_url}}> 
+			<form id="form" action={{function_url}}> 
 				<input type="search" id="query" name="search" placeholder={{query_text}}>
 				<button id="searchButton">Search</button>
 			</form>
+			
+			<select id="query" name="search" method="GET" action={{function_url}}>
+				<option value="{{dropdown[0]}}" selected>{{dropdown[0]}}</option>
+				{% for query in dropdown[1:] %}
+					<option value="{{query}}">{{query}}</option>
+				{% endfor %}
+			</select>
 		</div>
 		
 		<p class="answer-text">{{case_name_text}}</p>
