@@ -116,9 +116,9 @@ class DataSource:
         votes = []
         
         for row in hit:
-            newrow = [row[0]]
-            newrow[1] = self.voteinfo[row[1]]
+            newrow = [row[0],self.voteinfo[row[1]]]
             votes.append(newrow)
+            print(newrow)
         
         return votes
     
