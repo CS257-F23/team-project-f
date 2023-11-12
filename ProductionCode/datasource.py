@@ -50,6 +50,27 @@ class DataSource:
             
         else:
             return(cursor.fetchall())
+            
+    
+    def get_case_id_form(self):
+    
+        """
+        Gets all case IDs in a list.
+        """
+        
+        query = "SELECT usCite FROM caseinfo"
+        
+        return self.query_lookup(query)
+    
+    def get_justice_name_form(self):
+    
+        """
+        Gets all justice names in a list.
+        """
+    
+        query = "SELECT DISTINCT justiceName FROM voteinfo"
+        
+        return self.query_lookup(query)
         
     def all_justice_votes(self, justice):
     

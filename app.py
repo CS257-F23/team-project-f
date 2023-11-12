@@ -23,7 +23,6 @@ def display_find_name(case_id):
     """
     
     try:
-        # name = case_name_lookup(case_id)
         name = dataset.case_name_lookup(case_id)
         
     except LookupError:
@@ -40,7 +39,6 @@ def display_find_justice_votes(case_id):
     """
     
     try:
-        # votes = case_justice_votes(case_id)
         votes = dataset.case_justice_votes(case_id)
         
     except LookupError:
@@ -61,7 +59,6 @@ def display_find_case_ids(case_id):
     """
     
     try:
-        # ids = case_identifier_lookup(case_id)
         ids = dataset.case_identifier_lookup(case_id)
         
     except LookupError:
@@ -81,7 +78,6 @@ def display_find_all_justice_votes(justice):
     """
 
     try:
-        # votes = all_justice_votes(justice)
         votes = dataset.all_justice_votes(justice)
         
     except LookupError:
@@ -101,7 +97,6 @@ def came_name_displayer_page():
     '''
     Displays case name search page.
     '''
-
 
     func_text = "Find Case Name by Case ID"
     func_url = "/case_name"
@@ -211,6 +206,5 @@ def internal_server_error(e):
 
 if __name__ == '__main__':
 
-    # load_data()
     app.run(host="stearns.mathcs.carleton.edu",port=5220)
 
