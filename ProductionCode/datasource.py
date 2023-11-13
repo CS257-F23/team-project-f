@@ -125,6 +125,9 @@ class DataSource:
                 newrow = [row[0], self.voteinfo[row[1]]]
             votes.append(newrow)
         
+        if votes == []:
+            raise LookupError
+        
         return votes
 
     
@@ -147,6 +150,9 @@ class DataSource:
                "Case Name": hit[0][4]
         }
         
+        if ids == {}:
+            raise LookupError
+        
         return ids
         
         
@@ -158,7 +164,13 @@ class DataSource:
         
         query = "SELECT caseName FROM caseinfo WHERE usCite=%s"
         
-        return (self.query_lookup(query, us_cite_id))[0][0]
+        name = (self.query_lookup(query, us_cite_id))[0][0]
+        
+        if name == None:
+            raise LookupError
+            
+        return name
+        
         
         
     def case_justice_votes(self, us_cite_id: str) -> list:
@@ -179,6 +191,9 @@ class DataSource:
             else:
                 newrow = [row[0], self.voteinfo[row[1]]]
             votes.append(newrow)
+            
+        if votes == []:
+            raise LookupError
         
         return votes
     
