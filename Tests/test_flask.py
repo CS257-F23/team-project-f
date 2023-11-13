@@ -198,7 +198,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         response = self.app.get('/all_justice_votes?search=invalid')
-        self.assertIn(b"Invalid Justice asdfasdf",response.data)
+        self.assertIn(b"Invalid Justice Name",response.data)
     
     
     def test_page_not_found(self):
