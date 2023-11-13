@@ -16,7 +16,7 @@ def homepage():
     return render_template('homepage.html')
     
     
-def display_find_name(case_id):
+def display_find_name(case_id: str) -> str:
 
     """
     Calls function from ProductionCode to find and return name of case. Displays error message if an invalid ID was given.
@@ -32,7 +32,7 @@ def display_find_name(case_id):
         return name
         
 
-def display_find_justice_votes(case_id):
+def display_find_justice_votes(case_id: str) -> str:
 
     """
     Calls function from ProductionCode to find, format, and return justice voting data. Displays error message if an invalid ID was given.
@@ -52,7 +52,7 @@ def display_find_justice_votes(case_id):
         return display_votes[:-1]
         
         
-def display_find_case_ids(case_id):
+def display_find_case_ids(case_id: str) -> str:
 
     """
     Calls function from ProductionCode to find, format, and return case ID data. Displays error message if an invalid ID was given.
@@ -71,7 +71,7 @@ def display_find_case_ids(case_id):
         return display_ids[:-1]
         
         
-def display_find_all_justice_votes(justice):
+def display_find_all_justice_votes(justice: str) -> str:
 
     """
     Calls function from ProductionCode to find, format, and return all justice voting data. Displays error message if an invalid ID was given.
@@ -91,7 +91,7 @@ def display_find_all_justice_votes(justice):
         return display_votes[:-1]
 
 
-def create_case_id_dropdown():
+def create_case_id_dropdown() -> list:
 
     """
     Creates and returns list of all case ids for dropdown menu
@@ -101,7 +101,7 @@ def create_case_id_dropdown():
     return ids
 
 
-def create_justice_name_dropdown():
+def create_justice_name_dropdown() -> list:
 
     """
     Creates and returns list of all justice names for dropdown menu

@@ -18,7 +18,9 @@ class DataSource:
                          "5": "Judgement of the Court",
                          "6": "Dissent from denial of certiorari or of affirmation appeal",
                          "7": "Jurisdictional dissent",
-                         "8": "Participation in equally divided vote"}
+                         "8": "Participation in equally divided vote"
+        }
+
 
     def connect(self):
     
@@ -34,7 +36,8 @@ class DataSource:
             exit()
         return connection
         
-    def query_lookup(self, query, var):
+        
+    def query_lookup(self, query: str, var: str) -> str | list:
     
         '''
         Helper method for query lookup.
@@ -52,7 +55,7 @@ class DataSource:
             return(cursor.fetchall())
             
             
-    def direct_query_lookup(self, query):
+    def direct_query_lookup(self, query: str) -> str | list:
     
         '''
         Helper method for query lookup without variables.
@@ -70,7 +73,7 @@ class DataSource:
             return(cursor.fetchall())
             
     
-    def get_case_id_form(self):
+    def get_case_id_form(self) -> list:
     
         """
         Gets all case IDs in a list.
@@ -84,8 +87,9 @@ class DataSource:
             final.append(row[0])
         
         return final
+        
     
-    def get_justice_name_form(self):
+    def get_justice_name_form(self) -> list:
     
         """
         Gets all justice names in a list.
@@ -100,7 +104,8 @@ class DataSource:
         
         return final
         
-    def all_justice_votes(self, justice):
+        
+    def all_justice_votes(self, justice: str) -> list:
     
         '''
         Searches the dataset to get all case names and voting data for one justice.
@@ -123,7 +128,7 @@ class DataSource:
         return votes
 
     
-    def case_identifier_lookup(self, us_cite_id):
+    def case_identifier_lookup(self, us_cite_id: str) -> dict:
     
         '''
         Searches the dataset to get all case identifiers from a U.S. Citation ID.
@@ -144,7 +149,8 @@ class DataSource:
         
         return ids
         
-    def case_name_lookup(self, us_cite_id):
+        
+    def case_name_lookup(self, us_cite_id: str) -> str:
 
         '''
         Searches the dataset to get case name by U.S. Citation ID.
@@ -154,7 +160,8 @@ class DataSource:
         
         return (self.query_lookup(query, us_cite_id))[0][0]
         
-    def case_justice_votes(self, us_cite_id):
+        
+    def case_justice_votes(self, us_cite_id: str) -> list:
     
         '''
         Searches the dataset to get all justice votes for a certain case by U.S. Citation ID.
