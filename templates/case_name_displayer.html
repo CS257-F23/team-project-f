@@ -9,10 +9,10 @@
 		<header>
 			<div class="navbar">			
 				<a href="/" class="nav">Homepage	</a>	
-				<a href="/case_name" class="nav">Find case name by case</a>
-				<a href="/justice_votes" class="nav">Find justice votes by case</a>
-				<a href="/case_identifiers" class="nav">Find all identifiers by case</a>
-				<a href="/all_justice_votes" class="nav">Find all votes for one justice</a>
+				<a href="/case_name" class="nav">Case Name by Case</a>
+				<a href="/justice_votes" class="nav">Justice Votes by Case</a>
+				<a href="/case_identifiers" class="nav">All Identifiers by Case</a>
+				<a href="/all_justice_votes" class="nav">All Votes for One Justice</a>
 			</div>
 		</header>
 			
@@ -22,7 +22,8 @@
 			<form id ="form2" method="GET" action={{function_url}}>
 				<select name="search" id="query">
 					{% for choice in dropdown %}
-						<option value="{{choice}}">{{choice}}</option>
+						<option id= "{{choice}}" value="{{choice}}">{{choice}}</option>
+						<label for="{{choice}}">{{choice}}</label><br>
 					{% endfor %}
 				</select>
 				<button id="searchButton">Search</button>
