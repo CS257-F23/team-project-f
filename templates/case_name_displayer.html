@@ -23,6 +23,7 @@
 				<select name="search" id="query">
 					{% for choice in dropdown %}
 						<option id= "{{choice}}" value="{{choice}}">{{choice}}</option>
+						<label for="{{choice}}">{{choice}}</label>
 					{% endfor %}
 				</select>
 				<button id="searchButton">Search</button>
