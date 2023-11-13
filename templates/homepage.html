@@ -1,0 +1,44 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Homepage</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='datastyle1.css') }}">
+	</head>
+	<body>		
+		<header>
+			<div class="navbar">			
+				<a href="/" class="nav">Homepage	</a>	
+				<a href="/case_name" class="nav">Case Name by Case</a>
+				<a href="/justice_votes" class="nav">Justice Votes by Case</a>
+				<a href="/case_identifiers" class="nav">All Identifiers by Case</a>
+				<a href="/all_justice_votes" class="nav">All Votes for One Justice</a>
+			</div>
+		</header>	
+        
+
+		<section id="main">
+			<h1>Welcome to the Supreme Court Database</h1>
+			<p>The features of this website are listed below.</p>
+			<ul class="button-list">
+				<li><a href="/case_name" class="btn">Find case name by case</a></li>
+				<li><a href="/justice_votes" class="btn">Find justice votes by case</a></li>
+				<li><a href="/case_identifiers" class="btn">Find all identifiers by case</a></li>
+				<li><a href="/all_justice_votes" class="btn">Find all votes for one justice</a></li>
+			</ul>
+		</section>
+
+		<section id="about">
+			<div class="container">
+				<h2>About Us</h2>
+				<p>This is Group Deliverable 3 for Team F</p>
+			</div>
+		</section>
+
+		<footer>
+			<div class="container">
+				<p>&copy; Team F</p>
+			</div>
+		</footer>
+	</body>
+</html>

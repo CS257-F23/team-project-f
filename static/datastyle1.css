@@ -1,0 +1,165 @@
+/* style the body content */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+
+/* style the header bar*/
+header {
+    background-color: #696969;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.navbar {
+    overflow: hidden;
+}
+
+.nav {
+    float: left;
+    font-family: 'Arial', Times, serif;
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;    
+}
+
+.nav:hover {
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+
+
+/* style the container for about section and footers */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* style the container of the navigation buttons and the main content */
+#main {
+    background-size: cover;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+/* style the welcome message */
+#main h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #0d0d0d;
+}
+
+/* style the website description */
+#main p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #212121;
+}
+
+/* style the button list */
+.button-list {
+    display: flex; /* Use flexbox to make the list items align horizontally */
+    justify-content: space-between; 
+    list-style: none; 
+    padding: 0; 
+}
+
+/* Use flex to keep the distance between bottons */
+.button-list li {
+    flex: 1; 
+    margin: 0 10px; 
+}
+
+/* style the buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* style the button hover thus presenting them to be clickable */
+.btn:hover {
+    background-color: #555;
+}
+
+/* style the footer */
+footer {
+    background-color: #636363;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Center the page content */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Style the container of the search bar */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+
+/* Style the title for the name_finder page*/
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+
+/* Style the search box container */
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+/* Style the input fields */
+
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style the search button */
+#searchButton {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+/* Style the case name text */
+.answer-text {
+    margin-top: 10px;
+    font-style: italic;
+	text-align: center;
+	white-space: pre-wrap;
+}
+
+.notfound {
+	padding-top: 4em;
+	padding-bottom: 4em;
+	text-align: center;
+}
