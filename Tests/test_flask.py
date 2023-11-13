@@ -1,6 +1,6 @@
 import unittest
 from flask import Flask
-from ProductionCode.supreme_court import *
+from ProductionCode.datasource import DataSource
 from app import *
 
 class TestSupremeCourtApp(unittest.TestCase):
@@ -10,10 +10,10 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
         Set up test: load dataset and flask app.
         """
+        global test
     
-        load_data()
         self.app = app.test_client()
-
+        test = DataSource()
 
     def test_display_find_name_valid(self):
     
