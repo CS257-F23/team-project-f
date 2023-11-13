@@ -28,11 +28,11 @@ class TestFeatures(unittest.TestCase):
         First test for the case_justice_votes feature
         """
         vote_list = test.case_justice_votes("329 U.S. 1")
-        expected_list = [('HHBurton', 'Dissent'), ('RHJackson', 'Voted with majority'),
-                         ('WODouglas', 'Voted with majority'), ('FFrankfurter', 'Special concurrence'),
-                         ('SFReed', 'Voted with majority'), ('HLBlack', 'Voted with majority'),
-                         ('WBRutledge', 'Voted with majority'), ('FMurphy', 'Voted with majority'), 
-                         ('FMVinson', 'Voted with majority')]
+        expected_list = [['HHBurton', 'Dissent'], ['RHJackson', 'Voted with majority'],
+                         ['WODouglas', 'Voted with majority'], ['FFrankfurter', 'Special concurrence'],
+                         ['SFReed', 'Voted with majority'], ['HLBlack', 'Voted with majority'],
+                         ['WBRutledge', 'Voted with majority'], ['FMurphy', 'Voted with majority'], 
+                         ['FMVinson', 'Voted with majority']]
         self.assertEqual(vote_list,expected_list)
         
         
@@ -41,11 +41,11 @@ class TestFeatures(unittest.TestCase):
         Second test for the case_justice_votes feature
         """
         vote_list = test.case_justice_votes("329 U.S. 143")
-        expected_list = [('HHBurton', 'Voted with majority'), ('RHJackson', 'Voted with majority'),
-                         ('WODouglas', 'Voted with majority'), ('FFrankfurter', 'Voted with majority'),
-                         ('SFReed', 'Voted with majority'), ('HLBlack', 'Voted with majority'),
-                         ('WBRutledge', 'Voted with majority'), ('FMurphy', 'Voted with majority'),
-                         ('FMVinson', 'Voted with majority')]
+        expected_list = [['HHBurton', 'Voted with majority'], ['RHJackson', 'Voted with majority'],
+                         ['WODouglas', 'Voted with majority'], ['FFrankfurter', 'Voted with majority'],
+                         ['SFReed', 'Voted with majority'], ['HLBlack', 'Voted with majority'],
+                         ['WBRutledge', 'Voted with majority'], ['FMurphy', 'Voted with majority'],
+                         ['FMVinson', 'Voted with majority']]
         self.assertEqual(vote_list,expected_list)
             
             
@@ -111,7 +111,7 @@ class TestFeatures(unittest.TestCase):
         Test the all justice votes feature for valid input
         """
         all_votes = test.all_justice_votes("HHBurton")
-        one_expected_vote = ("AYRSHIRE COLLIERIES CORP. ET AL. v. UNITED STATES ET AL.","1")
+        one_expected_vote = ("AYRSHIRE COLLIERIES CORP. ET AL. v. UNITED STATES ET AL.","Voted with majority")
         self.assertIn(one_expected_vote, all_votes)
 
     def test_invalid_id_all_justice_votes(self):
