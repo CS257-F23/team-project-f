@@ -182,7 +182,7 @@ class TestSupremeCourtApp(unittest.TestCase):
     
         response = self.app.get('case_identifiers?search=invalid')
         
-        self.assertIn(b"Invalid U.S. Citation ID",response)
+        self.assertIn(b"Invalid U.S. Citation ID",response.data)
         
     def display_test_all_justice_votes_valid(self):
         """
@@ -190,7 +190,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         response = self.app.get('/all_justice_votes?search=HHBurton')
-        self.assertIn(b"HALLIBURTON OIL WELL CEMENTING CO. v. WALKER et al., DOING BUSINESS AS DEPTHOGRAPH CO. - 2",response)
+        self.assertIn(b"HALLIBURTON OIL WELL CEMENTING CO. v. WALKER et al., DOING BUSINESS AS DEPTHOGRAPH CO. - Dissent",response.data)
     
     def display_test_all_justice_votes_invalid(self):
         """
@@ -198,7 +198,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         response = self.app.get('/all_justice_votes?search=invalid')
-        self.assertIn(b"Invalid Justice Name",response)
+        self.assertIn(b"Invalid Justice asdfasdf",response.data)
     
     
     def test_page_not_found(self):
