@@ -37,7 +37,7 @@ class DataSource:
         return connection
         
         
-    def query_lookup(self, query: str, var: str) -> str | list:
+    def query_lookup(self, query: str, var: str) -> list:
     
         '''
         Helper method for query lookup.
@@ -55,7 +55,7 @@ class DataSource:
             return(cursor.fetchall())
             
             
-    def direct_query_lookup(self, query: str) -> str | list:
+    def direct_query_lookup(self, query: str) -> list:
     
         '''
         Helper method for query lookup without variables.
