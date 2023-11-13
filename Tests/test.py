@@ -237,5 +237,22 @@ KNAPP v. SCHWEITZER, JUDGE OF THE COURT OF GENERAL SESSIONS, et al. - Voted with
         self.assertIn("LookupError",cli_out["err"])
         
             
+    def test_get_case_id_form(self):
+        """
+        Test method that creates a list of all case IDs
+        """
+        one_expected_id = "576 U.S. 155"
+        
+        self.asserIn(one_expected_id,test.get_case_id_form())
+        
+    def test_get_justice_name_form(self):
+        """
+        Test method that creates a list of all justice names
+        """
+        one_expected_name = "RHJackson"
+        
+        self.assertIn(one_expected_name,test.get_justice_name_form())
+            
+            
 if __name__ == '__main__':
     unittest.main()
