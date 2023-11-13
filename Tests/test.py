@@ -243,7 +243,7 @@ KNAPP v. SCHWEITZER, JUDGE OF THE COURT OF GENERAL SESSIONS, et al. - Voted with
         """
         one_expected_id = "576 U.S. 155"
         
-        self.asserIn(one_expected_id,test.get_case_id_form())
+        self.assertIn(one_expected_id,test.get_case_id_form())
         
     def test_get_justice_name_form(self):
         """
