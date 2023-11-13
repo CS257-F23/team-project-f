@@ -62,7 +62,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         Test correct display value for case identifier function.
         """
     
-        result = display_find_caseids("410 U.S. 113")
+        result = display_find_case_ids("410 U.S. 113")
         self.assertIn("ROE et al. v. WADE, DISTRICT ATTORNEY OF DALLAS COUNTY", result) 
 
 
@@ -72,7 +72,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         Test display value for invalid case identifier input.
         """
     
-        result = display_find_caseids("invalid_case_id")
+        result = display_find_case_ids("invalid_case_id")
         self.assertEqual(result, "Invalid U.S. Citation ID")
         
     def test_display_all_justice_votes_valid(self):
@@ -91,11 +91,11 @@ class TestSupremeCourtApp(unittest.TestCase):
         Test display value for invalid find name input.
         """
     
-        result = display_find_name("invalid_name")
+        result = display_find_all_justice_votes("invalid_name")
         self.assertEqual(result, "Invalid Justice Name")
 
     
-    def test_create_case_id_dropdown():
+    def test_create_case_id_dropdown(self):
     
         """
         Test correct case ID dropdown creation.
@@ -104,7 +104,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         one_expected_id = "329 U.S. 69"
         self.assertIn(one_expected_id, create_case_id_dropdown())
     
-    def test_create_justice_name_dropdown():
+    def test_create_justice_name_dropdown(self):
     
         """
         Test correct justice name dropdown creation.
