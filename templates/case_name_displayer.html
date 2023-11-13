@@ -21,9 +21,9 @@
 			
 			<form id ="form2" method="GET" action={{function_url}}>
 				<select name="search" id="query">
-					<option id={{"dropdown[0]"}} value={{"dropdown[0]"}} selected>{{dropdown[0]}}</option>
-					<label for={{"dropdown[0]"}}>{{dropdown[0]}}</label><br>
-					{% for choice in dropdown[1:] %}
+					<option id={{"None"}} value={{""}} selected></option>
+					<label for={{"None"}}></label><br>
+					{% for choice in dropdown %}
 						<option id= "{{choice}}" value="{{choice}}">{{choice}}</option>
 						<label for="{{choice}}">{{choice}}</label><br>
 					{% endfor %}
