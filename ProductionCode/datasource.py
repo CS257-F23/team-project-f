@@ -85,6 +85,7 @@ class DataSource:
         final = []
         for row in hit:
             final.append(row[0])
+            print(row[0])
         
         return final
         
