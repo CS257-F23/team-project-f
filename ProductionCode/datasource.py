@@ -141,6 +141,9 @@ class DataSource:
         
         hit = self.query_lookup(query, us_cite_id)
         
+        if hit == None:
+            raise LookupError
+        
         ids = {
 
                "U.S. Reporter": us_cite_id,
@@ -149,10 +152,7 @@ class DataSource:
                "LEXIS": hit[0][3],
                "Case Name": hit[0][4]
         }
-        
-        if ids == {}:
-            raise LookupError
-        
+
         return ids
         
         
@@ -164,12 +164,12 @@ class DataSource:
         
         query = "SELECT caseName FROM caseinfo WHERE usCite=%s"
         
-        name = (self.query_lookup(query, us_cite_id))[0][0]
+        name = self.query_lookup(query, us_cite_id)
         
         if name == None:
             raise LookupError
             
-        return name
+        return name[0][0]
         
         
         
