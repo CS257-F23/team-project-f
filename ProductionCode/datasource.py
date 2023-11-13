@@ -141,7 +141,7 @@ class DataSource:
         
         hit = self.query_lookup(query, us_cite_id)
         
-        if hit == None:
+        if hit == []:
             raise LookupError
         
         ids = {
@@ -166,7 +166,7 @@ class DataSource:
         
         name = self.query_lookup(query, us_cite_id)
         
-        if name == None:
+        if name == []:
             raise LookupError
             
         return name[0][0]
