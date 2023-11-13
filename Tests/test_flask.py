@@ -198,7 +198,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         response = self.app.get('/all_justice_votes?search=invalid')
-        self.assertIn(b"Invalid Justice Name",response.data)
+        self.assertIn(b'Invalid Justice aaaaaaaaa',response.data)
     
     
     def test_page_not_found(self):
@@ -207,7 +207,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         response = self.app.get('/nonexistent_route')
-        self.assertIn(b"Page not found. Please follow the buttons on the homepage by clicking the header.", response.data)
+        self.assertIn(b'Page not found. Please follow the buttons on the homepage by clicking the header.', response.data)
         
     
 if __name__ == '__main__':
