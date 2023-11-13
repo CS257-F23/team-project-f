@@ -111,7 +111,7 @@ class TestFeatures(unittest.TestCase):
         Test the all justice votes feature for valid input
         """
         all_votes = test.all_justice_votes("HHBurton")
-        one_expected_vote = ("AYRSHIRE COLLIERIES CORP. ET AL. v. UNITED STATES ET AL.","Voted with majority")
+        one_expected_vote = ["AYRSHIRE COLLIERIES CORP. ET AL. v. UNITED STATES ET AL.","Voted with majority"]
         self.assertIn(one_expected_vote, all_votes)
 
     def test_invalid_id_all_justice_votes(self):
