@@ -42,7 +42,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         result = display_find_justice_votes("410 U.S. 113")
-        expected_output = 'WODouglas - 3\nPStewart - 3\nTMarshall - 1\nWJBrennan - 1\nBRWhite - 2\nWEBurger - 3\nHABlackmun - 1\nLFPowell - 1\nWHRehnquist - 2'
+        expected_output = 'WODouglas - Regular concurrence\nPStewart - Regular concurrence\nTMarshall - Voted with majority\nWJBrennan - Voted with majority\nBRWhite - Dissent\nWEBurger - Regular concurrence\nHABlackmun - Voted with majority\nLFPowell - Voted with majority\nWHRehnquist - Dissent'
         self.assertIn(expected_output, result)
 
 
@@ -93,7 +93,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         """
     
         response = self.app.get('/justice_votes?search=410+U.S.+113')
-        self.assertIn(b'WODouglas - 3\nPStewart - 3\nTMarshall - 1\nWJBrennan - 1\nBRWhite - 2\nWEBurger - 3\nHABlackmun - 1\nLFPowell - 1\nWHRehnquist - 2', response.data) 
+        self.assertIn(b'WODouglas - Regular concurrence\nPStewart - Regular concurrence\nTMarshall - Voted with majority\nWJBrennan - Voted with majority\nBRWhite - Dissent\nWEBurger - Regular concurrence\nHABlackmun - Voted with majority\nLFPowell - Voted with majority\nWHRehnquist - Dissent', response.data) 
 
     def test_display_supreme_court_data_find_justice_votes_invalid(self):
     
