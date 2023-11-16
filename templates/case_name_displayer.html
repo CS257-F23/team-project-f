@@ -20,14 +20,15 @@
 			<h1>{{function_text}}</h1>
 			
 			<form id ="form" method="GET" action={{function_url}}>
-				<select name="search" id="query">
-					<option id="None" value=""></option>
-					<label for="None"></label>
+				<select name="Search" id="query">
+					<option id="None" value="">Select</option>
+					<label for="None">Select</label>
 					{% for choice in dropdown %}
 						<option id="{{choice}}" value="{{choice}}">{{choice}}</option>
 						<label for="{{choice}}">{{choice}}</label>
 					{% endfor %}
 				</select>
+				<label for="query">Search</label>
 				<button id="searchButton">Search</button>
 			</form>
 			
