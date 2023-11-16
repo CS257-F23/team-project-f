@@ -121,7 +121,7 @@ def came_name_displayer_page():
     func_text = "Find Case Name by Case ID"
     func_url = "/case_name"
     query_text = "Enter Case ID"
-    search_query = request.args.get('search')
+    search_query = request.args.get('Search')
     dropdown = create_case_id_dropdown()
     
     if search_query == None or search_query == "":
@@ -144,7 +144,7 @@ def justice_votes_displayer_page():
     func_text = "Find Justice Votes by Case ID"
     func_url = "/justice_votes"
     query_text = "Enter Case ID"
-    search_query = request.args.get('search')
+    search_query = request.args.get('Search')
     dropdown = create_case_id_dropdown()
     
     if search_query == None or search_query == "":
@@ -164,7 +164,7 @@ def case_identifiers_displayer_page():
     Displays case identifiers search page.
     '''
     
-    search_query = request.args.get('search')
+    search_query = request.args.get('Search')
     
     func_text = "Find Case Identifiers by Case ID"
     func_url = "/case_identifiers"
@@ -188,7 +188,7 @@ def all_justice_votes_displayer_page():
     Displays all justice votes search page.
     '''
     
-    search_query = request.args.get('search')
+    search_query = request.args.get('Search')
     
     func_text = "Find All Justice Votes by Justice Name"
     func_url = "/all_justice_votes"
