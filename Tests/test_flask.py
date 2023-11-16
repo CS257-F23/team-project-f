@@ -161,7 +161,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         response = self.app.get('/justice_votes?search=invalid_case_id')
         self.assertIn(b"Invalid U.S. Citation ID", response.data)
 
-    def route_test_case_identifiers_valid(self):
+    def test_route_case_identifiers_valid(self):
         """
         Test that the app route returns the correct message for the case identifier function.
         """
@@ -175,7 +175,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         self.assertIn(b"LEXIS: 1946 U.S. LEXIS 1696", response.data)
         self.assertIn(b"Case Name: UNITED STATES v. ALCEA BAND OF TILLAMOOKS ET AL.", response.data)
         
-    def route_test_case_identifiers_invalid(self):
+    def test_route_case_identifiers_invalid(self):
         """
         Test that the app route returns an error for invalid case name for the case identifier function.
         """
@@ -184,7 +184,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         
         self.assertIn(b"Invalid U.S. Citation ID",response.data)
         
-    def display_test_all_justice_votes_valid(self):
+    def test_display_all_justice_votes_valid(self):
         """
         Test that the app route returns the correct message for the all votes for justice function.
         """
@@ -192,7 +192,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         response = self.app.get('/all_justice_votes?search=HHBurton')
         self.assertIn(b"HALLIBURTON OIL WELL CEMENTING CO. v. WALKER et al., DOING BUSINESS AS DEPTHOGRAPH CO. - Dissent",response.data)
     
-    def display_test_all_justice_votes_invalid(self):
+    def test_display_all_justice_votes_invalid(self):
         """
         Test that the app route returns the error message for the all votes for justice function if input is invalid.
         """
