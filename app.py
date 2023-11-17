@@ -214,7 +214,7 @@ def page_not_found(e):
 
     return render_template('404.html')
                            
-@app.route('/all_justice_votes', methods=['GET'], strict_slashes=False)
+@app.route('/vote_explanation',strict_slashes=False)
 def vote_explanation_displayer():
 
     """
