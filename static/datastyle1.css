@@ -172,5 +172,5 @@ select {
 }
 
 label {
-    visibility: hidden;
+    visibility: visible;
 }
