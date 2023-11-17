@@ -231,6 +231,16 @@ class TestSupremeCourtApp(unittest.TestCase):
         response = self.app.get('/case_name?search=')
         self.assertIn(b"Select case ID from the dropdown menu", response.data)
     
+    
+    def test_route_voting_info(self):
+    
+        """
+        Test that the page that displays voting info contains correct information
+        """
+        
+        response = self.app.get('/vote_explanation')
+        self.assertIn(b'Voted with Majority:', response.data)
+    
     def test_page_not_found(self):
         """
         Test that an error message is displayed for error 404.
