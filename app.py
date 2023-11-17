@@ -124,7 +124,7 @@ def came_name_displayer_page():
     search_query = request.args.get('search')
     dropdown = create_case_id_dropdown()
     
-    if search_query == None or search_query == "":
+    if search_query == None or search_query == "Select Case ID":
         case_name_text = "Select case ID from the dropdown menu"
     else:
         case_name_text = display_find_name(search_query)     
@@ -147,7 +147,7 @@ def justice_votes_displayer_page():
     search_query = request.args.get('search')
     dropdown = create_case_id_dropdown()
     
-    if search_query == None or search_query == "":
+    if search_query == None or search_query == "Select Case ID":
         case_name_text = "Select case ID from the dropdown menu"         
     else:
         case_name_text = display_find_justice_votes(search_query)    
@@ -171,7 +171,7 @@ def case_identifiers_displayer_page():
     query_text = "Enter Case ID"
     dropdown = create_case_id_dropdown()  
     
-    if search_query == None or search_query == "":
+    if search_query == None or search_query == "Select Case ID":
         case_name_text = "Select case ID from the dropdown menu"         
     else:
         case_name_text = display_find_case_ids(search_query)   
@@ -195,7 +195,7 @@ def all_justice_votes_displayer_page():
     query_text = "Enter Justice Name"
     dropdown = create_justice_name_dropdown()
     
-    if search_query == None or search_query == "":
+    if search_query == None or search_query == "Select Justice Name":
         case_name_text = "Select justice name from the dropdown menu"         
     else:    
         case_name_text = display_find_all_justice_votes(search_query)   
