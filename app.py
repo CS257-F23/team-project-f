@@ -152,7 +152,7 @@ def justice_votes_displayer_page():
     else:
         case_name_text = display_find_justice_votes(search_query)    
 
-    return render_template('case_name_displayer.html', case_name_text=case_name_text, 
+    return render_template('case_justice_vote_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
                            query_text=query_text,dropdown=dropdown)
                            
@@ -176,7 +176,7 @@ def case_identifiers_displayer_page():
     else:
         case_name_text = display_find_case_ids(search_query)   
 
-    return render_template('case_name_displayer.html', case_name_text=case_name_text, 
+    return render_template('case_identifier_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
                            query_text=query_text,dropdown=dropdown)
                            
@@ -200,7 +200,7 @@ def all_justice_votes_displayer_page():
     else:    
         case_name_text = display_find_all_justice_votes(search_query)   
 
-    return render_template('case_name_displayer.html', case_name_text=case_name_text, 
+    return render_template('all_votes_justice_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
                            query_text=query_text, dropdown=dropdown)
 
