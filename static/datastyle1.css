@@ -163,3 +163,8 @@ select {
 	padding-bottom: 4em;
 	text-align: center;
 }
+
+.vote_type_explanation {
+    padding-top: 4em;
+	padding-bottom: 4em;
+}

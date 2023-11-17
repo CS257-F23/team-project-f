@@ -214,6 +214,14 @@ def page_not_found(e):
 
     return render_template('404.html')
                            
+@app.route('/all_justice_votes', methods=['GET'], strict_slashes=False)
+def vote_explanation_displayer():
+
+    """
+    Displays the explanation for vote decisions
+    """
+
+    return render_template('vote_explanation.html')
     
 
 @app.errorhandler(500)
