@@ -126,12 +126,14 @@ def came_name_displayer_page():
     
     if search_query == None or search_query == "":
         case_name_text = "Select case ID from the dropdown menu"
+        contextual_info = "Here are all of the other Identifiers, use them to find this case in case you are using other databases"
     else:
         case_name_text = display_find_name(search_query)     
+        contextual_info = "The identifiers are shown as follows"
     
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
-                           query_text=query_text,dropdown=dropdown)
+                           query_text=query_text,dropdown=dropdown,contextual_info=contextual_info)
         
         
 @app.route('/justice_votes', methods=['GET'], strict_slashes=False)
@@ -174,13 +176,16 @@ def case_identifiers_displayer_page():
     dropdown = create_case_id_dropdown()  
     
     if search_query == None or search_query == "":
-        case_name_text = "Select case ID from the dropdown menu"         
+        case_name_text = "Select case ID from the dropdown menu" 
+        contextual_info = "This page allows you to check the case name of a case"
+                
     else:
         case_name_text = display_find_case_ids(search_query)   
+        contextual_info = "The name of the case you selected is:"
 
     return render_template('case_identifier_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
-                           query_text=query_text,dropdown=dropdown)
+                           query_text=query_text,dropdown=dropdown,contextual_info=contextual_info)
                            
                            
 @app.route('/all_justice_votes', methods=['GET'], strict_slashes=False)
