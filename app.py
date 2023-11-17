@@ -198,13 +198,15 @@ def all_justice_votes_displayer_page():
     dropdown = create_justice_name_dropdown()
     
     if search_query == None or search_query == "":
-        case_name_text = "Select justice name from the dropdown menu"         
+        case_name_text = "Select justice name from the dropdown menu" 
+        contextual_info = "This page allows you to see all the votes of a justice"        
     else:    
         case_name_text = display_find_all_justice_votes(search_query)   
+        contextual_info = "On the left is the name of the justice, and on the right is what their vote was."
 
     return render_template('all_votes_justice_displayer.html', case_name_text=case_name_text, 
                            function_text=func_text, function_url=func_url,
-                           query_text=query_text, dropdown=dropdown)
+                           query_text=query_text, dropdown=dropdown,contextual_info=contextual_info)
 
     
 @app.errorhandler(404)
