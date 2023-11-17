@@ -17,7 +17,7 @@
 		</header>
 			
 		<div class="search-container">
-			<h1>Find Case Identifiers by Case ID</h1>
+			<h1><label for="query">Find Case Identifiers by Case ID</label></h1>
 			
 			<form id ="form" method="GET" action=/case_identifiers>
 				<select name="search" id="query">
@@ -28,13 +28,13 @@
 						<label for="{{choice}}">{{choice}}</label>
 					{% endfor %}
 				</select>
-				<label for="query"></label>
+				
 				<button id="searchButton">Search</button>
 			</form>
 
 			<div class="info">
 				<p>{{contextual_info}}</p>
-				<a href="/identifiers_explanation">Click here to see what each identifers are</a>
+				<a href="/identifiers_explanation" target="_blank">Click here to see what each identifers are</a>
 			</div>
 			
 			<p class="answer-text">{{case_name_text}}</p>
