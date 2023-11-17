@@ -118,9 +118,6 @@ def came_name_displayer_page():
     Displays case name search page.
     '''
 
-    func_text = "Find Case Name by Case ID"
-    func_url = "/case_name"
-    query_text = "Enter Case ID"
     search_query = request.args.get('search')
     dropdown = create_case_id_dropdown()
     
@@ -132,8 +129,7 @@ def came_name_displayer_page():
         contextual_info = "The name of the case you selected is:"
     
     return render_template('case_name_displayer.html', case_name_text=case_name_text, 
-                           function_text=func_text, function_url=func_url,
-                           query_text=query_text,dropdown=dropdown,contextual_info=contextual_info)
+                           dropdown=dropdown,contextual_info=contextual_info)
         
         
 @app.route('/justice_votes', methods=['GET'], strict_slashes=False)
@@ -142,10 +138,7 @@ def justice_votes_displayer_page():
     '''
     Displays justice votes search page.
     '''
-    
-    func_text = "Find Justice Votes by Case ID"
-    func_url = "/justice_votes"
-    query_text = "Enter Case ID"
+
     search_query = request.args.get('search')
     dropdown = create_case_id_dropdown()
     
@@ -157,8 +150,7 @@ def justice_votes_displayer_page():
         contextual_info = "On the left is the name of the justice, and on the right is what their vote was."
 
     return render_template('case_justice_vote_displayer.html', case_name_text=case_name_text, 
-                           function_text=func_text, function_url=func_url,
-                           query_text=query_text,dropdown=dropdown,contextual_info=contextual_info)
+                            dropdown=dropdown,contextual_info=contextual_info)
                            
                            
 @app.route('/case_identifiers', methods=['GET'], strict_slashes=False)
@@ -170,9 +162,7 @@ def case_identifiers_displayer_page():
     
     search_query = request.args.get('search')
     
-    func_text = "Find Case Identifiers by Case ID"
-    func_url = "/case_identifiers"
-    query_text = "Enter Case ID"
+
     dropdown = create_case_id_dropdown()  
     
     if search_query == None or search_query == "":
@@ -184,8 +174,7 @@ def case_identifiers_displayer_page():
         contextual_info = "The identifiers are shown as follows"
 
     return render_template('case_identifier_displayer.html', case_name_text=case_name_text, 
-                           function_text=func_text, function_url=func_url,
-                           query_text=query_text,dropdown=dropdown,contextual_info=contextual_info)
+                            dropdown=dropdown,contextual_info=contextual_info)
                            
                            
 @app.route('/all_justice_votes', methods=['GET'], strict_slashes=False)
@@ -197,9 +186,6 @@ def all_justice_votes_displayer_page():
     
     search_query = request.args.get('search')
     
-    func_text = "Find All Justice Votes by Justice Name"
-    func_url = "/all_justice_votes"
-    query_text = "Enter Justice Name"
     dropdown = create_justice_name_dropdown()
     
     if search_query == None or search_query == "":
@@ -210,8 +196,7 @@ def all_justice_votes_displayer_page():
         contextual_info = "On the left is the name of the justice, and on the right is what their vote was."
 
     return render_template('all_votes_justice_displayer.html', case_name_text=case_name_text, 
-                           function_text=func_text, function_url=func_url,
-                           query_text=query_text, dropdown=dropdown,contextual_info=contextual_info)
+                             dropdown=dropdown,contextual_info=contextual_info)
 
     
 @app.errorhandler(404)
