@@ -1,0 +1,34 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Homepage</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='datastyle1.css') }}">
+	</head>
+	<body>
+		<header>
+			<div class="navbar">			
+				<a href="/" class="nav">Homepage	</a>	
+				<a href="/case_name" class="nav">Case Name by Case</a>
+				<a href="/justice_votes" class="nav">Justice Votes by Case</a>
+				<a href="/case_identifiers" class="nav">All Identifiers by Case</a>
+				<a href="/all_justice_votes" class="nav">All Votes for One Justice</a>
+			</div>
+		</header>
+		
+		<p class="vote_type_explanation">Voted with Majority: This means that the justice agreed with the majority of their peers on the court in the decision of a case. The majority opinion is the one that decides the outcome of the case, and it is typically accompanied by a written explanation of the legal reasoning behind the decision.<br>
+            <br>
+            Dissent: A dissent is when a justice disagrees with the majority decision. The dissenting justice(s) will often write a dissenting opinion, explaining their reasoning and why they believe the majority decision is incorrect. Dissents are significant because they can influence future legal arguments and decisions, even if they do not determine the outcome of the current case.<br>
+            <br>
+            Special Concurrence: A special concurrence (or concurring opinion) occurs when a justice agrees with the outcome of the majority but has different reasons for their decision. They may write a concurring opinion to outline their unique reasoning. This can happen when a justice agrees with the end result of the case but disagrees with the legal rationale used by the majority to reach that result.<br>
+            <br>
+            None: In the context of Supreme Court decisions, "None" might refer to a situation where a justice did not participate in the decision-making process for a particular case. This could be due to recusal (a justice stepping aside from a case due to a potential conflict of interest or other reasons), absence, or if the justice was not on the court at the time the case was decided.
+        </p>
+	
+		<footer>
+			<div class="container">
+				<p>&copy; Team F</p>
+			</div>
+		</footer>
+	</body>
+</html>

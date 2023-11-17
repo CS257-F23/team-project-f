@@ -218,6 +218,16 @@ def vote_explanation_displayer():
     return render_template('vote_explanation.html')
     
 
+@app.route('/identifiers_explanation',strict_slashes=False)
+def vote_explanation_displayer():
+
+    """
+    Displays the explanation for different identifiers
+    """
+
+    return render_template('identifiers_explanation.html')
+
+
 @app.errorhandler(500)
 def internal_server_error(e):
 
