@@ -168,7 +168,6 @@ class TestSupremeCourtApp(unittest.TestCase):
     
         response = self.app.get('case_identifiers?search=329+U.S.+40')
         
-        # Assert that all expected texts are included
         self.assertIn(b"U.S. Reporter: 329 U.S. 40", response.data)
 
         
@@ -181,7 +180,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         
         self.assertIn(b"Invalid U.S. Citation ID",response.data)
         
-    def test_display_all_justice_votes_valid(self):
+    def test_route_all_justice_votes_valid(self):
         """
         Test that the app route returns the correct message for the all votes for justice function.
         """
@@ -189,7 +188,7 @@ class TestSupremeCourtApp(unittest.TestCase):
         response = self.app.get('/all_justice_votes?search=HHBurton')
         self.assertIn(b"HALLIBURTON OIL WELL CEMENTING CO. v. WALKER et al., DOING BUSINESS AS DEPTHOGRAPH CO. - Dissent",response.data)
     
-    def test_display_all_justice_votes_invalid(self):
+    def test_route_all_justice_votes_invalid(self):
         """
         Test that the app route returns the error message for the all votes for justice function if input is invalid.
         """
@@ -197,6 +196,40 @@ class TestSupremeCourtApp(unittest.TestCase):
         response = self.app.get('/all_justice_votes?search=invalid')
         self.assertIn(b'Invalid Justice Name',response.data)
     
+    def test_display_all_justice_votes_selection(self):
+        """
+        Test that the app route returns instructions for empty input for the all justice votes function.
+        """
+    
+        response = self.app.get('/all_justice_votes?search=')
+        self.assertIn(b'Select justice name from the dropdown menu',response.data)
+        
+    def test_route_case_identifiers_selection(self):
+        """
+        Test that the app route returns instructions for empty input for the case identifier function.
+        """
+    
+        response = self.app.get('case_identifiers?search=')
+        
+        self.assertIn(b"Select case ID from the dropdown menu",response.data)
+        
+    def test_route_find_justice_votes_selection(self):
+    
+        """
+        Test that the app route returns an error for empty input for the find justice votes function.
+        """
+    
+        response = self.app.get('/justice_votes?search=')
+        self.assertIn(b"Select case ID from the dropdown menu", response.data)
+        
+    def test_route_find_name_selection(self):
+    
+        """
+        Test that the app route returns an error for empty input for the find name function.
+        """
+    
+        response = self.app.get('/case_name?search=')
+        self.assertIn(b"Select case ID from the dropdown menu", response.data)
     
     def test_page_not_found(self):
         """
