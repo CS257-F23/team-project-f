@@ -105,7 +105,6 @@ footer {
 body {
     font-family: Arial, sans-serif;
     text-align: left;
-    padding-left: 10%;
 }
 
 /* Style the container of the search bar */
@@ -115,6 +114,7 @@ body {
     justify-content: left;
     align-items: left;
     height: 30vh;
+    padding-left: 10%;
 }
 
 /* Style the title for the name_finder page*/

@@ -193,7 +193,7 @@ def all_justice_votes_displayer_page():
         contextual_info = "This page allows you to see all the votes of a justice"        
     else:    
         case_name_text = display_find_all_justice_votes(search_query)   
-        contextual_info = "On the left is the name of the justice, and on the right is what their vote was."
+        contextual_info = "On the left is the name of the case, and on the right is what their vote was."
 
     return render_template('all_votes_justice_displayer.html', case_name_text=case_name_text, 
                              dropdown=dropdown,contextual_info=contextual_info)
