@@ -105,6 +105,7 @@ footer {
 body {
     font-family: Arial, sans-serif;
     text-align: left;
+    padding-left: 10%;
 }
 
 /* Style the container of the search bar */
