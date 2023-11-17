@@ -219,7 +219,7 @@ def vote_explanation_displayer():
     
 
 @app.route('/identifiers_explanation',strict_slashes=False)
-def vote_explanation_displayer():
+def identifiers_explanation_displayer():
 
     """
     Displays the explanation for different identifiers
