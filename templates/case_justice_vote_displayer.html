@@ -1,0 +1,47 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Homepage</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='datastyle1.css') }}">
+	</head>
+	<body>
+		<header>
+			<div class="navbar">			
+				<a href="/" class="nav">Homepage	</a>	
+				<a href="/case_name" class="nav">Case Name by Case</a>
+				<a href="/justice_votes" class="nav">Justice Votes by Case</a>
+				<a href="/case_identifiers" class="nav">All Identifiers by Case</a>
+				<a href="/all_justice_votes" class="nav">All Votes for One Justice</a>
+			</div>
+		</header>
+			
+		<div class="search-container">
+			<h1><label for="query">Find Justice Votes by Case ID</label></h1>
+			
+			<form id ="form" method="GET" action=/justice_votes>
+				<select name="search" id="query">
+					<option id="None" value="">Select Case ID</option>
+					<label for="None">Select</label>
+					{% for choice in dropdown %}
+						<option id="{{choice}}" value="{{choice}}">{{choice}}</option>
+						<label for="{{choice}}">{{choice}}</label>
+					{% endfor %}
+				</select>
+				<button id="searchButton">Search</button>
+			</form>
+			<div class="info">
+				<p>{{contextual_info}}</p>
+				<a href="/vote_explanation" target="_blank"> Click here to understand what the different vote types mean</a>
+			</div>
+			<p class="answer-text">{{case_name_text}}</p>
+		</div>
+		
+
+		<footer>
+			<div class="container">
+				<p>&copy; Team F</p>
+			</div>
+		</footer>
+	</body>
+</html>

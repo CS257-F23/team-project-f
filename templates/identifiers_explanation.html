@@ -1,0 +1,59 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Homepage</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='datastyle1.css') }}">
+	</head>
+	<body>
+		<header>
+			<div class="navbar">			
+				<a href="/" class="nav">Homepage	</a>	
+				<a href="/case_name" class="nav">Case Name by Case</a>
+				<a href="/justice_votes" class="nav">Justice Votes by Case</a>
+				<a href="/case_identifiers" class="nav">All Identifiers by Case</a>
+				<a href="/all_justice_votes" class="nav">All Votes for One Justice</a>
+			</div>
+		</header>
+		
+		<div class="vote_type_explanation">
+			<p><strong>U.S. Reporter: (e.g. 329 U.S. 1)</strong></p>
+			<ul>
+				<li><strong>U.S. Reporter:</strong> Refers to the United States Reports, the official series containing the decisions and opinions of the U.S. Supreme Court.</li>
+				<li><strong>329:</strong> Volume number within the U.S. Reports series.</li>
+				<li><strong>U.S. 1:</strong> Specific page number in volume 329 of the United States Reports where the case can be found.</li>
+			</ul>
+
+			<p><strong>Supreme Court Reporter: (e.g. 67 S. Ct. 6)</strong></p>
+			<ul>
+				<li><strong>Supreme Court Reporter:</strong> Another series reporting the decisions of the U.S. Supreme Court.</li>
+				<li><strong>67:</strong> Volume number within the Supreme Court Reporter series.</li>
+				<li><strong>S. Ct. 6:</strong> Specific page number in volume 67 of the Supreme Court Reporter where the case is located.</li>
+			</ul>
+
+			<p><strong>Lawyers' Edition Reports: (e.g. 91 L. Ed. 3)</strong></p>
+			<ul>
+				<li><strong>Lawyers' Edition Reports:</strong> A series used for reporting U.S. court cases, often used for legal research.</li>
+				<li><strong>91:</strong> Volume number within the Lawyers' Edition Reports series.</li>
+				<li><strong>L. Ed. 3:</strong> Specific page number in volume 91 of the Lawyers' Edition Reports where the case can be found.</li>
+			</ul>
+
+			<p><strong>LEXIS: (e.g. 1946 U.S. LEXIS 1724)</strong></p>
+			<ul>
+				<li><strong>LEXIS:</strong> Refers to the legal database LexisNexis, a comprehensive resource for legal research.</li>
+				<li><strong>1946 U.S. LEXIS 1724:</strong> Unique identifier specifying the year (1946), jurisdiction (U.S.), and a specific reference number (1724) within the LexisNexis database for the case.</li>
+			</ul>
+
+			<p><strong>Case Name: (e.g. HALLIBURTON OIL WELL CEMENTING CO. v. WALKER et al., DOING BUSINESS AS DEPTHOGRAPH CO.)</strong></p>
+			<ul>
+				<li>This is the name of the case itself, formatted as "Plaintiff v. Defendant." In this case, it involves Halliburton Oil Well Cementing Co. against Walker and others doing business as Depthograph Co. The case name identifies the specific legal matter.</li>
+			</ul>
+        </div>
+	
+		<footer>
+			<div class="container">
+				<p>&copy; Team F</p>
+			</div>
+		</footer>
+	</body>
+</html>
